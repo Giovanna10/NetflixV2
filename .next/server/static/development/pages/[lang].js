@@ -93,6 +93,36 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./assets/arrow.ts":
+/*!*************************!*\
+  !*** ./assets/arrow.ts ***!
+  \*************************/
+/*! exports provided: rightArrow, leftArrow */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightArrow", function() { return rightArrow; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "leftArrow", function() { return leftArrow; });
+const rightArrow = "https://image.flaticon.com/icons/svg/481/481143.svg";
+const leftArrow = "https://image.flaticon.com/icons/svg/481/481146.svg";
+
+/***/ }),
+
+/***/ "./assets/images.ts":
+/*!**************************!*\
+  !*** ./assets/images.ts ***!
+  \**************************/
+/*! exports provided: images */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "images", function() { return images; });
+const images = ["https://www.gettyimages.it/gi-resources/images/500px/983794168.jpg", "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg", "https://www.gettyimages.it/gi-resources/images/500px/983801190.jpg", "https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg", "https://cdn.pixabay.com/photo/2020/05/25/20/06/storm-5220380__340.jpg", "https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80"];
+
+/***/ }),
+
 /***/ "./components/LocaleSwitcher.tsx":
 /*!***************************************!*\
   !*** ./components/LocaleSwitcher.tsx ***!
@@ -178,6 +208,328 @@ const Navigation = () => {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Navigation);
+
+/***/ }),
+
+/***/ "./components/atoms/arrow/Arrow.tsx":
+/*!******************************************!*\
+  !*** ./components/atoms/arrow/Arrow.tsx ***!
+  \******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _assets_arrow__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../assets/arrow */ "./assets/arrow.ts");
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/arrow/Arrow.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const ArrowContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: ${props => props.right && 0};
+  width: 5%;
+  background-color: rgba(171, 167, 167, .65);
+`;
+
+const Arrow = ({
+  right,
+  slidePrev,
+  slideNext
+}) => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, right ? __jsx(ArrowContainer, {
+  right: true,
+  onClick: slideNext,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 26
+  },
+  __self: undefined
+}, __jsx("img", {
+  src: _assets_arrow__WEBPACK_IMPORTED_MODULE_2__["rightArrow"],
+  style: {
+    width: 25,
+    height: 25
+  },
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 27
+  },
+  __self: undefined
+})) : __jsx(ArrowContainer, {
+  onClick: slidePrev,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 30
+  },
+  __self: undefined
+}, __jsx("img", {
+  src: _assets_arrow__WEBPACK_IMPORTED_MODULE_2__["leftArrow"],
+  style: {
+    width: 25,
+    height: 25
+  },
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 31
+  },
+  __self: undefined
+})));
+
+/* harmony default export */ __webpack_exports__["default"] = (Arrow);
+
+/***/ }),
+
+/***/ "./components/atoms/card/SliderCard.tsx":
+/*!**********************************************!*\
+  !*** ./components/atoms/card/SliderCard.tsx ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _text_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../text/Text */ "./components/atoms/text/Text.ts");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/card/SliderCard.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+  background-image: ${props => `url("${props.backgroundImage}")`};
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: ${props => props.border ? `${props.border}px solid` : "0.5px solid"};
+  width: ${props => props.width ? `${props.width}` : "100%"};
+  height: ${props => props.height ? `${props.height}` : "100%"};
+  margin: ${props => props.margin};
+`;
+
+const SliderCard = ({
+  width,
+  height,
+  margin,
+  backgroundImage
+}) => {
+  const {
+    0: isHover,
+    1: setIsHover
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+
+  const Details = __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_text_Text__WEBPACK_IMPORTED_MODULE_1__["Text"], {
+    color: "#fefefe",
+    molecolTitle: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: undefined
+  }, "Title"), __jsx(_text_Text__WEBPACK_IMPORTED_MODULE_1__["Text"], {
+    color: "#fefefe",
+    paragraph: true,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: undefined
+  }, "Duration"));
+
+  const handleMouseEnter = () => {
+    setIsHover(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHover(false);
+  };
+
+  return __jsx(CardContainer, {
+    onMouseOver: () => handleMouseEnter(),
+    onMouseLeave: () => handleMouseLeave(),
+    width: width,
+    height: height,
+    margin: margin,
+    backgroundImage: backgroundImage,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 50
+    },
+    __self: undefined
+  }, isHover ? Details : null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SliderCard);
+
+/***/ }),
+
+/***/ "./components/atoms/text/Text.ts":
+/*!***************************************!*\
+  !*** ./components/atoms/text/Text.ts ***!
+  \***************************************/
+/*! exports provided: Text */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return Text; });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+const Text = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.p`
+    font-size: ${props => props.organismTitle ? '2em' : props.molecolTitle ? '1.4em' : '1em'};
+    color: ${props => props.color};
+    font-weight: ${props => props.organismTitle ? 400 : props.molecolTitle ? 200 : 0}
+`;
+
+/***/ }),
+
+/***/ "./components/molecules/slider/Slider.tsx":
+/*!************************************************!*\
+  !*** ./components/molecules/slider/Slider.tsx ***!
+  \************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_alice_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-alice-carousel */ "react-alice-carousel");
+/* harmony import */ var react_alice_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-alice-carousel/lib/alice-carousel.css */ "./node_modules/react-alice-carousel/lib/alice-carousel.css");
+/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../atoms/card/SliderCard */ "./components/atoms/card/SliderCard.tsx");
+/* harmony import */ var _atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../atoms/arrow/Arrow */ "./components/atoms/arrow/Arrow.tsx");
+/* harmony import */ var _assets_images__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/images */ "./assets/images.ts");
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/molecules/slider/Slider.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+
+
+
+
+const Slider = () => {
+  const sliderItems = _assets_images__WEBPACK_IMPORTED_MODULE_5__["images"].map(image => __jsx(_atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    width: "340px",
+    height: "200px",
+    margin: "2px",
+    backgroundImage: image,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: undefined
+  }));
+  const carouselRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
+
+  const slidePrev = () => {
+    var _carouselRef$current;
+
+    return (_carouselRef$current = carouselRef.current) === null || _carouselRef$current === void 0 ? void 0 : _carouselRef$current.slidePrev();
+  };
+
+  const slideNext = () => {
+    var _carouselRef$current2;
+
+    return (_carouselRef$current2 = carouselRef.current) === null || _carouselRef$current2 === void 0 ? void 0 : _carouselRef$current2.slideNext();
+  };
+
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    slidePrev: slidePrev,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: undefined
+  }), __jsx(react_alice_carousel__WEBPACK_IMPORTED_MODULE_1___default.a, {
+    responsive: {
+      0: {
+        items: 5
+      },
+      1024: {
+        items: 7
+      }
+    },
+    dotsDisabled: true,
+    duration: 400,
+    buttonsDisabled: true,
+    ref: carouselRef,
+    items: sliderItems,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: undefined
+  }), __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    right: true,
+    slideNext: slideNext,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: undefined
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Slider);
+
+/***/ }),
+
+/***/ "./components/molecules/sliderWrapper/SliderWrapper.tsx":
+/*!**************************************************************!*\
+  !*** ./components/molecules/sliderWrapper/SliderWrapper.tsx ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _slider_Slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../slider/Slider */ "./components/molecules/slider/Slider.tsx");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/molecules/sliderWrapper/SliderWrapper.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+
+const SliderContainer = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+`;
+
+const SliderWrapper = () => __jsx(SliderContainer, {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 12
+  },
+  __self: undefined
+}, __jsx(_slider_Slider__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 13
+  },
+  __self: undefined
+}));
+
+/* harmony default export */ __webpack_exports__["default"] = (SliderWrapper);
 
 /***/ }),
 
@@ -949,6 +1301,17 @@ module.exports = __webpack_require__(/*! ./dist/pages/_error */ "./node_modules/
 
 /***/ }),
 
+/***/ "./node_modules/react-alice-carousel/lib/alice-carousel.css":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-alice-carousel/lib/alice-carousel.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
 /***/ "./pages/[lang]/index.tsx":
 /*!********************************!*\
   !*** ./pages/[lang]/index.tsx ***!
@@ -962,8 +1325,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hocs_withLocale__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hocs/withLocale */ "./hocs/withLocale.tsx");
 /* harmony import */ var _components_Navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Navigation */ "./components/Navigation.tsx");
+/* harmony import */ var _components_atoms_text_Text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/atoms/text/Text */ "./components/atoms/text/Text.ts");
+/* harmony import */ var _components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/molecules/sliderWrapper/SliderWrapper */ "./components/molecules/sliderWrapper/SliderWrapper.tsx");
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/pages/[lang]/index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
 
 
 
@@ -972,22 +1339,29 @@ const IndexPage = () => {
   return __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 7
+      lineNumber: 10
     },
     __self: undefined
   }, __jsx(_components_Navigation__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 8
+      lineNumber: 11
     },
     __self: undefined
-  }), __jsx("h1", {
+  }), __jsx(_components_atoms_text_Text__WEBPACK_IMPORTED_MODULE_3__["Text"], {
+    organismTitle: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 9
+      lineNumber: 12
     },
     __self: undefined
-  }, "Home Page"));
+  }, "Home Page"), __jsx(_components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 13
+    },
+    __self: undefined
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(_hocs_withLocale__WEBPACK_IMPORTED_MODULE_1__["default"])(IndexPage));
@@ -1064,6 +1438,28 @@ module.exports = require("next/router");
 /***/ (function(module, exports) {
 
 module.exports = require("react");
+
+/***/ }),
+
+/***/ "react-alice-carousel":
+/*!***************************************!*\
+  !*** external "react-alice-carousel" ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("react-alice-carousel");
+
+/***/ }),
+
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ }),
 
