@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 5);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -567,22 +567,23 @@ const Arrow = ({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _text_Text__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../text/Text */ "./components/atoms/text/Text.ts");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/card/SliderCard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-
-const CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
-  background-image: ${props => `url("${props.backgroundImage}")`};
-  background-repeat: no-repeat;
-  background-size: cover;
+const CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div`
   border: ${props => props.border ? `${props.border}px solid` : "0.5px solid"};
   width: ${props => props.width ? `${props.width}` : "100%"};
   height: ${props => props.height ? `${props.height}` : "100%"};
   margin: ${props => props.margin};
+`;
+const PlayerContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.iframe`
+  width: ${props => props.width ? `${props.width}px` : "100%"};
+  height: ${props => props.height ? `${props.height}px` : "100%"};
+  transform: scale(1.2);
+  transition: 0.8s ease 0.8s;
 `;
 
 const SliderCard = ({
@@ -596,24 +597,6 @@ const SliderCard = ({
     1: setIsHover
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
 
-  const Details = __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_text_Text__WEBPACK_IMPORTED_MODULE_1__["Text"], {
-    color: "#fefefe",
-    molecolTitle: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: undefined
-  }, "Title"), __jsx(_text_Text__WEBPACK_IMPORTED_MODULE_1__["Text"], {
-    color: "#fefefe",
-    paragraph: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37
-    },
-    __self: undefined
-  }, "Duration"));
-
   const handleMouseEnter = () => {
     setIsHover(true);
   };
@@ -623,42 +606,38 @@ const SliderCard = ({
   };
 
   return __jsx(CardContainer, {
-    onMouseOver: () => handleMouseEnter(),
+    onMouseEnter: () => handleMouseEnter(),
     onMouseLeave: () => handleMouseLeave(),
     width: width,
     height: height,
     margin: margin,
-    backgroundImage: backgroundImage,
+    backgroundImage: isHover ? "" : backgroundImage,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 57
     },
     __self: undefined
-  }, isHover ? Details : null);
+  }, isHover ? __jsx(PlayerContainer, {
+    frameBorder: "0",
+    src: "https://www.youtube.com/embed/jNgP6d9HraI?autoplay=1&controls=0&mute=1",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: undefined
+  }) : __jsx("img", {
+    src: backgroundImage,
+    width: width,
+    height: height,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: undefined
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SliderCard);
-
-/***/ }),
-
-/***/ "./components/atoms/text/Text.ts":
-/*!***************************************!*\
-  !*** ./components/atoms/text/Text.ts ***!
-  \***************************************/
-/*! exports provided: Text */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return Text; });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
-
-const Text = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.p`
-    font-size: ${props => props.organismTitle ? '2em' : props.molecolTitle ? '1.4em' : '1em'};
-    color: ${props => props.color};
-    font-weight: ${props => props.organismTitle ? 400 : props.molecolTitle ? 200 : 0}
-`;
 
 /***/ }),
 
@@ -1723,7 +1702,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 const IndexPage = () => {
   return __jsx("body", {
     style: {
-      overflow: 'auto'
+      overflow: 'auto',
+      margin: 0,
+      backgroundColor: '#000000'
     },
     __source: {
       fileName: _jsxFileName,
@@ -1794,7 +1775,7 @@ function isLocale(tested) {
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /*!**************************************!*\
   !*** multi ./pages/[lang]/index.tsx ***!
   \**************************************/

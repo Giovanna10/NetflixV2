@@ -6,7 +6,7 @@ import DailyEventWindow from "../../components/organisms/DailyEventWindow";
 
 const IndexPage: React.FC = () => {
   return (
-    <body style={{overflow: 'auto'}}>
+    <body style={{overflow: 'auto', margin: 0, backgroundColor: '#000000'}}>
       <Navigation />
       <DailyEventWindow />
       <SliderWrapper />

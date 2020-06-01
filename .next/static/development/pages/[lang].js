@@ -500,14 +500,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _text_Text__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../text/Text */ "./components/atoms/text/Text.ts");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/card/SliderCard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
+function _templateObject2() {
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  width: ", ";\n  height: ", ";\n  transform: scale(1.2);\n  transition: 0.8s ease 0.8s;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject() {
-  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  background-image: ", ";\n  background-repeat: no-repeat;\n  background-size: cover;\n  border: ", ";\n  width: ", ";\n  height: ", ";\n  margin: ", ";\n"]);
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  border: ", ";\n  width: ", ";\n  height: ", ";\n  margin: ", ";\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -518,10 +527,7 @@ function _templateObject() {
 
 
 
-
-var CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject(), function (props) {
-  return "url(\"".concat(props.backgroundImage, "\")");
-}, function (props) {
+var CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject(), function (props) {
   return props.border ? "".concat(props.border, "px solid") : "0.5px solid";
 }, function (props) {
   return props.width ? "".concat(props.width) : "100%";
@@ -529,6 +535,11 @@ var CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].di
   return props.height ? "".concat(props.height) : "100%";
 }, function (props) {
   return props.margin;
+});
+var PlayerContainer = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].iframe(_templateObject2(), function (props) {
+  return props.width ? "".concat(props.width, "px") : "100%";
+}, function (props) {
+  return props.height ? "".concat(props.height, "px") : "100%";
 });
 
 var SliderCard = function SliderCard(_ref) {
@@ -541,24 +552,6 @@ var SliderCard = function SliderCard(_ref) {
       isHover = _useState[0],
       setIsHover = _useState[1];
 
-  var Details = __jsx(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, null, __jsx(_text_Text__WEBPACK_IMPORTED_MODULE_2__["Text"], {
-    color: "#fefefe",
-    molecolTitle: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 36
-    },
-    __self: this
-  }, "Title"), __jsx(_text_Text__WEBPACK_IMPORTED_MODULE_2__["Text"], {
-    color: "#fefefe",
-    paragraph: true,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 37
-    },
-    __self: this
-  }, "Duration"));
-
   var handleMouseEnter = function handleMouseEnter() {
     setIsHover(true);
   };
@@ -568,7 +561,7 @@ var SliderCard = function SliderCard(_ref) {
   };
 
   return __jsx(CardContainer, {
-    onMouseOver: function onMouseOver() {
+    onMouseEnter: function onMouseEnter() {
       return handleMouseEnter();
     },
     onMouseLeave: function onMouseLeave() {
@@ -577,51 +570,33 @@ var SliderCard = function SliderCard(_ref) {
     width: width,
     height: height,
     margin: margin,
-    backgroundImage: backgroundImage,
+    backgroundImage: isHover ? "" : backgroundImage,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 50
+      lineNumber: 57
     },
     __self: this
-  }, isHover ? Details : null);
+  }, isHover ? __jsx(PlayerContainer, {
+    frameBorder: "0",
+    src: "https://www.youtube.com/embed/jNgP6d9HraI?autoplay=1&controls=0&mute=1",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 66
+    },
+    __self: this
+  }) : __jsx("img", {
+    src: backgroundImage,
+    width: width,
+    height: height,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 71
+    },
+    __self: this
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SliderCard);
-
-/***/ }),
-
-/***/ "./components/atoms/text/Text.ts":
-/*!***************************************!*\
-  !*** ./components/atoms/text/Text.ts ***!
-  \***************************************/
-/*! exports provided: Text */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return Text; });
-/* harmony import */ var _babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-
-
-function _templateObject() {
-  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    font-size: ", ";\n    color: ", ";\n    font-weight: ", "\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-
-var Text = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(_templateObject(), function (props) {
-  return props.organismTitle ? '2em' : props.molecolTitle ? '1.4em' : '1em';
-}, function (props) {
-  return props.color;
-}, function (props) {
-  return props.organismTitle ? 400 : props.molecolTitle ? 200 : 0;
-});
 
 /***/ }),
 
@@ -12551,7 +12526,9 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 var IndexPage = function IndexPage() {
   return __jsx("body", {
     style: {
-      overflow: 'auto'
+      overflow: 'auto',
+      margin: 0,
+      backgroundColor: '#000000'
     },
     __source: {
       fileName: _jsxFileName,
@@ -12624,7 +12601,7 @@ function isLocale(tested) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!**********************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F%5Blang%5D&absolutePagePath=%2FUsers%2Fgiovannaradica%2FDesktop%2FProjects%2FNetflixV2%2Fpages%2F%5Blang%5D%2Findex.tsx ***!
   \**********************************************************************************************************************************************************************/
@@ -12647,5 +12624,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[4,"static/runtime/webpack.js","styles"]]]);
+},[[3,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[lang].js.map
