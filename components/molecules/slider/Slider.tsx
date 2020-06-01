@@ -1,13 +1,17 @@
 import React, { useRef } from "react";
 import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
 import SliderCard from "../../atoms/card/SliderCard";
 import Arrow from "../../atoms/arrow/Arrow";
 import { images } from "../../../assets/images";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Slider: React.FC = () => {
   const sliderItems = images.map((image) => (
-    <SliderCard width={"340px"} height={"200px"} margin={"2px"} backgroundImage={image} />
+    <SliderCard
+      width={"300px"}
+      height={"200px"}
+      backgroundImage={image}
+    />
   ));
 
   const carouselRef = useRef<AliceCarousel>(null);

@@ -1,18 +1,70 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([["static/development/pages/[lang].js"],{
 
-/***/ "./assets/arrow.ts":
-/*!*************************!*\
-  !*** ./assets/arrow.ts ***!
-  \*************************/
-/*! exports provided: rightArrow, leftArrow */
+/***/ "./assets/arrow-left.svg":
+/*!*******************************!*\
+  !*** ./assets/arrow-left.svg ***!
+  \*******************************/
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "rightArrow", function() { return rightArrow; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "leftArrow", function() { return leftArrow; });
-var rightArrow = "https://image.flaticon.com/icons/svg/481/481143.svg";
-var leftArrow = "https://image.flaticon.com/icons/svg/481/481146.svg";
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var _ref =
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M153.433 255.991L381.037 18.033c4.063-4.26 3.917-11.01-.333-15.083-4.229-4.073-10.979-3.896-15.083.333L130.954 248.616c-3.937 4.125-3.937 10.625 0 14.75L365.621 508.7a10.65 10.65 0 007.708 3.292c2.646 0 5.313-.979 7.375-2.958 4.25-4.073 4.396-10.823.333-15.083l-227.604-237.96z"
+});
+
+function SvgArrowLeft(props) {
+  return (
+    /*#__PURE__*/
+    react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
+      viewBox: "0 0 511.991 511.991"
+    }, props), _ref)
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgArrowLeft);
+
+/***/ }),
+
+/***/ "./assets/arrow-right.svg":
+/*!********************************!*\
+  !*** ./assets/arrow-right.svg ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var _ref =
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M381.039 248.62L146.373 3.287C142.29-.942 135.54-1.13 131.29 2.954c-4.25 4.073-4.396 10.823-.333 15.083L358.56 255.995 130.956 493.954c-4.063 4.26-3.917 11.01.333 15.083a10.63 10.63 0 007.375 2.958 10.65 10.65 0 007.708-3.292L381.039 263.37c3.938-4.125 3.938-10.625 0-14.75z"
+});
+
+function SvgArrowRight(props) {
+  return (
+    /*#__PURE__*/
+    react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
+      viewBox: "0 0 511.995 511.995"
+    }, props), _ref)
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgArrowRight);
 
 /***/ }),
 
@@ -27,6 +79,76 @@ var leftArrow = "https://image.flaticon.com/icons/svg/481/481146.svg";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "images", function() { return images; });
 var images = ["https://www.gettyimages.it/gi-resources/images/500px/983794168.jpg", "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg", "https://www.gettyimages.it/gi-resources/images/500px/983801190.jpg", "https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg", "https://cdn.pixabay.com/photo/2020/05/25/20/06/storm-5220380__340.jpg", "https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80"];
+
+/***/ }),
+
+/***/ "./assets/information.svg":
+/*!********************************!*\
+  !*** ./assets/information.svg ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var _ref =
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M262.118 0C117.588 0 0 117.588 0 262.118s117.588 262.118 262.118 262.118 262.118-117.588 262.118-262.118S406.647 0 262.118 0zm17.05 417.639c-12.453 2.076-37.232 7.261-49.815 8.303-10.651.882-20.702-5.215-26.829-13.967a32.756 32.756 0 01-3.968-29.997l49.547-136.242h-51.515c-.044-28.389 21.25-49.263 48.485-57.274 12.997-3.824 37.212-9.057 49.809-8.255 7.547.48 20.702 5.215 26.829 13.967a32.756 32.756 0 013.968 29.997l-49.547 136.242h51.499c.01 28.356-20.49 52.564-48.463 57.226zm15.714-253.815c-18.096 0-32.765-14.671-32.765-32.765 0-18.096 14.669-32.765 32.765-32.765s32.765 14.669 32.765 32.765c0 18.095-14.668 32.765-32.765 32.765z"
+});
+
+function SvgInformation(props) {
+  return (
+    /*#__PURE__*/
+    react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
+      height: 512,
+      viewBox: "0 0 524.235 524.235",
+      width: 512
+    }, props), _ref)
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgInformation);
+
+/***/ }),
+
+/***/ "./assets/play.svg":
+/*!*************************!*\
+  !*** ./assets/play.svg ***!
+  \*************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var _ref =
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M405.284 201.188L130.804 13.28C118.128 4.596 105.356 0 94.74 0 74.216 0 61.52 16.472 61.52 44.044v406.124c0 27.54 12.68 43.98 33.156 43.98 10.632 0 23.2-4.6 35.904-13.308l274.608-187.904c17.66-12.104 27.44-28.392 27.44-45.884.004-17.48-9.664-33.764-27.344-45.864z"
+});
+
+function SvgPlay(props) {
+  return (
+    /*#__PURE__*/
+    react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
+      viewBox: "0 0 494.148 494.148"
+    }, props), _ref)
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgPlay);
 
 /***/ }),
 
@@ -121,6 +243,172 @@ var Navigation = function Navigation() {
 
 /***/ }),
 
+/***/ "./components/atoms/Button.tsx":
+/*!*************************************!*\
+  !*** ./components/atoms/Button.tsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Icon */ "./components/atoms/Icon.tsx");
+
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/Button.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+function _templateObject2() {
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  color: ", ";\n  font-size: ", ";\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  height: ", ";\n  width: ", ";\n  display: flex;\n  flex-direction: raw;\n  justify-content: ", ";\n  align-items: center;\n  border-radius: ", ";\n  background: ", ";\n  cursor: pointer;\n  opacity: ", ";\n  &:focus {\n    outline: 0;\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+var ButtonComponent = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject(), function (props) {
+  return props.height ? props.height : "20px";
+}, function (props) {
+  return props.width ? props.width : "50px";
+}, function (props) {
+  return props.justifyContent;
+}, function (props) {
+  return props.rounded;
+}, function (props) {
+  return props.backgroundColor;
+}, function (props) {
+  return props.opacity;
+});
+var TextComponent = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p(_templateObject2(), function (props) {
+  return props.textColor;
+}, function (props) {
+  return props.textSize;
+});
+
+var Button = function Button(_ref) {
+  var height = _ref.height,
+      width = _ref.width,
+      text = _ref.text,
+      textSize = _ref.textSize,
+      textColor = _ref.textColor,
+      icon = _ref.icon,
+      iconHeight = _ref.iconHeight,
+      iconWidth = _ref.iconWidth,
+      rounded = _ref.rounded,
+      backgroundColor = _ref.backgroundColor,
+      justifyContent = _ref.justifyContent,
+      opacity = _ref.opacity;
+  return __jsx(ButtonComponent, {
+    height: height,
+    width: width,
+    rounded: rounded,
+    backgroundColor: backgroundColor,
+    justifyContent: justifyContent,
+    opacity: opacity,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 58
+    },
+    __self: this
+  }, icon && __jsx(_Icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: icon,
+    height: iconHeight,
+    width: iconWidth,
+    color: "#000000",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 67
+    },
+    __self: this
+  }), __jsx(TextComponent, {
+    textColor: textColor,
+    textSize: textSize,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 74
+    },
+    __self: this
+  }, text));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Button);
+
+/***/ }),
+
+/***/ "./components/atoms/Icon.tsx":
+/*!***********************************!*\
+  !*** ./components/atoms/Icon.tsx ***!
+  \***********************************/
+/*! exports provided: Icons, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Icons", function() { return Icons; });
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _assets_play_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/play.svg */ "./assets/play.svg");
+/* harmony import */ var _assets_information_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/information.svg */ "./assets/information.svg");
+/* harmony import */ var _assets_arrow_right_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/arrow-right.svg */ "./assets/arrow-right.svg");
+/* harmony import */ var _assets_arrow_left_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/arrow-left.svg */ "./assets/arrow-left.svg");
+
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/Icon.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+
+
+
+
+var Icons = {
+  playIcon: _assets_play_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  infoIcon: _assets_information_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  rightArrow: _assets_arrow_right_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  leftArrow: _assets_arrow_left_svg__WEBPACK_IMPORTED_MODULE_5__["default"]
+};
+
+var Icon = function Icon(_ref) {
+  var props = Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, _ref);
+
+  var name = props.name;
+  var IconComponent = Icons[name];
+  return IconComponent ? __jsx(IconComponent, Object(_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  })) : __jsx("div", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 26
+    },
+    __self: this
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Icon);
+
+/***/ }),
+
 /***/ "./components/atoms/arrow/Arrow.tsx":
 /*!******************************************!*\
   !*** ./components/atoms/arrow/Arrow.tsx ***!
@@ -134,14 +422,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _assets_arrow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../assets/arrow */ "./assets/arrow.ts");
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Icon */ "./components/atoms/Icon.tsx");
 
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/arrow/Arrow.tsx";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
 
 function _templateObject() {
-  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: ", ";\n  width: 5%;\n  background-color: rgba(171, 167, 167, .65);\n"]);
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  z-index: 1;\n  position: absolute;\n  top: 0;\n  bottom: 0;\n  right: ", ";\n  width: 5%;\n  background-color: rgba(171, 167, 167, 0.65);\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -165,36 +453,32 @@ var Arrow = function Arrow(_ref) {
     onClick: slideNext,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 30
     },
     __self: this
-  }, __jsx("img", {
-    src: _assets_arrow__WEBPACK_IMPORTED_MODULE_3__["rightArrow"],
-    style: {
-      width: 25,
-      height: 25
-    },
+  }, __jsx(_Icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: "rightArrow",
+    width: 25,
+    height: 25,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 31
     },
     __self: this
   })) : __jsx(ArrowContainer, {
     onClick: slidePrev,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 30
+      lineNumber: 34
     },
     __self: this
-  }, __jsx("img", {
-    src: _assets_arrow__WEBPACK_IMPORTED_MODULE_3__["leftArrow"],
-    style: {
-      width: 25,
-      height: 25
-    },
+  }, __jsx(_Icon__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    name: "leftArrow",
+    width: 25,
+    height: 25,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 31
+      lineNumber: 35
     },
     __self: this
   })));
@@ -354,11 +638,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_alice_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-alice-carousel */ "./node_modules/react-alice-carousel/lib/react-alice-carousel.js");
 /* harmony import */ var react_alice_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-alice-carousel/lib/alice-carousel.css */ "./node_modules/react-alice-carousel/lib/alice-carousel.css");
-/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../atoms/card/SliderCard */ "./components/atoms/card/SliderCard.tsx");
-/* harmony import */ var _atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../atoms/arrow/Arrow */ "./components/atoms/arrow/Arrow.tsx");
-/* harmony import */ var _assets_images__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../assets/images */ "./assets/images.ts");
+/* harmony import */ var _atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../atoms/card/SliderCard */ "./components/atoms/card/SliderCard.tsx");
+/* harmony import */ var _atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../atoms/arrow/Arrow */ "./components/atoms/arrow/Arrow.tsx");
+/* harmony import */ var _assets_images__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/images */ "./assets/images.ts");
+/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-alice-carousel/lib/alice-carousel.css */ "./node_modules/react-alice-carousel/lib/alice-carousel.css");
+/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_5__);
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/molecules/slider/Slider.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -369,11 +653,10 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var Slider = function Slider() {
-  var sliderItems = _assets_images__WEBPACK_IMPORTED_MODULE_5__["images"].map(function (image) {
-    return __jsx(_atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      width: "340px",
+  var sliderItems = _assets_images__WEBPACK_IMPORTED_MODULE_4__["images"].map(function (image) {
+    return __jsx(_atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      width: "300px",
       height: "200px",
-      margin: "2px",
       backgroundImage: image,
       __source: {
         fileName: _jsxFileName,
@@ -396,11 +679,11 @@ var Slider = function Slider() {
     return (_carouselRef$current2 = carouselRef.current) === null || _carouselRef$current2 === void 0 ? void 0 : _carouselRef$current2.slideNext();
   };
 
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
     slidePrev: slidePrev,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 24
     },
     __self: this
   }), __jsx(react_alice_carousel__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -419,15 +702,15 @@ var Slider = function Slider() {
     items: sliderItems,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 25
     },
     __self: this
-  }), __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  }), __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
     right: true,
     slideNext: slideNext,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 36
+      lineNumber: 40
     },
     __self: this
   }));
@@ -487,6 +770,137 @@ var SliderWrapper = function SliderWrapper() {
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SliderWrapper);
+
+/***/ }),
+
+/***/ "./components/organisms/DailyEventWindow.tsx":
+/*!***************************************************!*\
+  !*** ./components/organisms/DailyEventWindow.tsx ***!
+  \***************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _atoms_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/Button */ "./components/atoms/Button.tsx");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/organisms/DailyEventWindow.tsx";
+var __jsx = react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement;
+
+function _templateObject3() {
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: flex;\n  flex-direction: row;\n  justify-content: space-around;\n  width: 30%;\n  margin-top: 75px;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2() {
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: flex;\n  flex-direction: column;\n  margin-top: 50px;\n  margin-left: 50px;\n  margin-right: 50px;\n"]);
+
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = Object(_babel_runtime_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  display: flex;\n  flex-direction: column;\n  height: 650px;\n  width: 100%;\n  background-image: url(\"https://img2.tgcom24.mediaset.it/binary/fotogallery/istockphoto/41.$plit/C_2_fotogallery_3084643_9_image.jpg?20171215053032\");\n  background-position: center;\n  background-repeat: no-repeat;\n  background-size: cover;\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+var DailyEventWindowContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject());
+var TextsContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject2());
+var ButtonsContainer = styled_components__WEBPACK_IMPORTED_MODULE_3__["default"].div(_templateObject3());
+
+var DailyEventWindow = function DailyEventWindow() {
+  return __jsx(DailyEventWindowContainer, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: this
+  }, __jsx(TextsContainer, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 35
+    },
+    __self: this
+  }, __jsx("h1", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 36
+    },
+    __self: this
+  }, " DailyEventWindow "), __jsx("h2", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: this
+  }, " Subtitle "), __jsx("p", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 39
+    },
+    __self: this
+  }, "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam, optio facere! Consectetur sequi ratione porro, sunt fugiat saepe illum aspernatur magni quis quas dolore distinctio!")), __jsx(ButtonsContainer, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 46
+    },
+    __self: this
+  }, __jsx(_atoms_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    height: "55px",
+    width: "115px",
+    backgroundColor: "#fefefe",
+    text: "Play",
+    textColor: "#000000",
+    textSize: 18,
+    icon: "playIcon",
+    iconHeight: 20,
+    iconWidth: 20,
+    justifyContent: "space-around",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }), __jsx(_atoms_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    height: "55px",
+    width: "115px",
+    backgroundColor: "#fefefe",
+    text: "Other Info",
+    textColor: "#000000",
+    textSize: 18,
+    icon: "infoIcon",
+    iconHeight: 20,
+    iconWidth: 20,
+    justifyContent: "space-around",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 59
+    },
+    __self: this
+  })));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (DailyEventWindow);
 
 /***/ }),
 
@@ -12124,8 +12538,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hocs_withLocale__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hocs/withLocale */ "./hocs/withLocale.tsx");
 /* harmony import */ var _components_Navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Navigation */ "./components/Navigation.tsx");
-/* harmony import */ var _components_atoms_text_Text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/atoms/text/Text */ "./components/atoms/text/Text.ts");
-/* harmony import */ var _components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/molecules/sliderWrapper/SliderWrapper */ "./components/molecules/sliderWrapper/SliderWrapper.tsx");
+/* harmony import */ var _components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/molecules/sliderWrapper/SliderWrapper */ "./components/molecules/sliderWrapper/SliderWrapper.tsx");
+/* harmony import */ var _components_organisms_DailyEventWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/organisms/DailyEventWindow */ "./components/organisms/DailyEventWindow.tsx");
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/pages/[lang]/index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -12135,29 +12549,31 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 var IndexPage = function IndexPage() {
-  return __jsx("div", {
+  return __jsx("body", {
+    style: {
+      overflow: 'auto'
+    },
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 10
+      lineNumber: 9
     },
     __self: this
   }, __jsx(_components_Navigation__WEBPACK_IMPORTED_MODULE_2__["default"], {
     __source: {
       fileName: _jsxFileName,
+      lineNumber: 10
+    },
+    __self: this
+  }), __jsx(_components_organisms_DailyEventWindow__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    __source: {
+      fileName: _jsxFileName,
       lineNumber: 11
     },
     __self: this
-  }), __jsx(_components_atoms_text_Text__WEBPACK_IMPORTED_MODULE_3__["Text"], {
-    organismTitle: true,
+  }), __jsx(_components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
-    },
-    __self: this
-  }, "Home Page"), __jsx(_components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_4__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 13
     },
     __self: this
   }));
@@ -12208,7 +12624,7 @@ function isLocale(tested) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!**********************************************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F%5Blang%5D&absolutePagePath=%2FUsers%2Fgiovannaradica%2FDesktop%2FProjects%2FNetflixV2%2Fpages%2F%5Blang%5D%2Findex.tsx ***!
   \**********************************************************************************************************************************************************************/
@@ -12231,5 +12647,5 @@ module.exports = dll_ef0ff7c60362f24a921f;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=[lang].js.map

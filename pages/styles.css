@@ -1,15 +1,17 @@
 .alice-carousel__stage {
   position: relative;
-  margin: 25px !important;
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
 }
 
 .alice-carousel__stage-item {
-  margin: 0px 5px
+  margin: 0px 5px;
+  width: 295px !important;
 }
 
 .alice-carousel__stage:focus-within .alice-carousel__stage-item,
 .alice-carousel__stage:hover li {
-  transition: 0.5s;
+  transition: 0.5s ease;
   transform: translateX(-6%);
 }
 
