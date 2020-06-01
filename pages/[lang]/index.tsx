@@ -1,13 +1,16 @@
 import React from "react";
 import withLocale from "../../hocs/withLocale";
 import Navigation from "../../components/Navigation";
+import SliderWrapper from "../../components/molecules/sliderWrapper/SliderWrapper";
+import DailyEventWindow from "../../components/organisms/DailyEventWindow";
 
 const IndexPage: React.FC = () => {
   return (
-    <div>
+    <body style={{overflow: 'auto'}}>
       <Navigation />
-      <h1>Home Page</h1>
-    </div>
+      <DailyEventWindow />
+      <SliderWrapper />
+    </body>
   );
 };
 

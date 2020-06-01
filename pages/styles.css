@@ -1,0 +1,36 @@
+.alice-carousel__stage {
+  position: relative;
+  margin-top: 25px !important;
+  margin-bottom: 25px !important;
+}
+
+.alice-carousel__stage-item {
+  margin: 0px 5px;
+  width: 295px !important;
+}
+
+.alice-carousel__stage:focus-within .alice-carousel__stage-item,
+.alice-carousel__stage:hover li {
+  transition: 0.5s ease;
+  transform: translateX(-6%);
+}
+
+.alice-carousel__stage-item:focus ~ .alice-carousel__stage-item,
+.alice-carousel__stage-item:hover ~ .alice-carousel__stage-item {
+  transform: translateX(6%);
+}
+
+.alice-carousel__stage .alice-carousel__stage-item:focus,
+.alice-carousel__stage .alice-carousel__stage-item:hover {
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+body {
+  overflow: hidden;
+}
+
+.alice-carousel__stage-item img {
+  display: block;
+  max-width: 100%;
+}
