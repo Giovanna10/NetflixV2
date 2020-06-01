@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Text } from "../text/Text";
 import styled from "styled-components";
 
 interface SliderCardProps {
@@ -18,10 +17,12 @@ interface CardContainerProps {
   margin?: string;
 }
 
+interface PlayerContainerProps {
+  width?: number;
+  height?: number;
+}
+
 const CardContainer = styled.div<CardContainerProps>`
-  background-image: ${(props) => `url("${props.backgroundImage}")`};
-  background-repeat: no-repeat;
-  background-size: cover;
   border: ${(props) =>
     props.border ? `${props.border}px solid` : "0.5px solid"};
   width: ${(props) => (props.width ? `${props.width}` : "100%")};
@@ -29,14 +30,20 @@ const CardContainer = styled.div<CardContainerProps>`
   margin: ${(props) => props.margin};
 `;
 
-const SliderCard: React.FC<SliderCardProps> = ({ width, height, margin, backgroundImage }) => {
+const PlayerContainer = styled.iframe<PlayerContainerProps>`
+  width: ${(props) => (props.width ? `${props.width}px` : "100%")};
+  height: ${(props) => (props.height ? `${props.height}px` : "100%")};
+  transform: scale(1.2);
+  transition: 0.8s ease 0.8s;
+`;
+
+const SliderCard: React.FC<SliderCardProps> = ({
+  width,
+  height,
+  margin,
+  backgroundImage,
+}) => {
   const [isHover, setIsHover] = useState(false);
-  const Details = (
-    <>
-      <Text color={"#fefefe"} molecolTitle>Title</Text>
-      <Text color={"#fefefe"} paragraph>Duration</Text>
-    </>
-  );
 
   const handleMouseEnter = () => {
     setIsHover(true);
@@ -48,14 +55,21 @@ const SliderCard: React.FC<SliderCardProps> = ({ width, height, margin, backgrou
 
   return (
     <CardContainer
-      onMouseOver={() => handleMouseEnter()}
+      onMouseEnter={() => handleMouseEnter()}
       onMouseLeave={() => handleMouseLeave()}
       width={width}
       height={height}
       margin={margin}
-      backgroundImage={backgroundImage}
+      backgroundImage={isHover ? "" : backgroundImage}
     >
-      {isHover ? Details : null}
+      {isHover ? (
+        <PlayerContainer
+          frameBorder="0"
+          src="https://www.youtube.com/embed/jNgP6d9HraI?autoplay=1&amp;controls=0&amp;mute=1"
+        />
+      ) : (
+        <img src={backgroundImage} width={width} height={height} />
+      )}
     </CardContainer>
   );
 };

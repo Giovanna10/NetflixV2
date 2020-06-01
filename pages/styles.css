@@ -6,7 +6,7 @@
 
 .alice-carousel__stage-item {
   margin: 0px 5px;
-  width: 295px !important;
+  width: 300px !important;
 }
 
 .alice-carousel__stage:focus-within .alice-carousel__stage-item,
