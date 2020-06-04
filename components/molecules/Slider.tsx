@@ -1,8 +1,8 @@
 import React, { useRef } from "react";
 import AliceCarousel from "react-alice-carousel";
-import SliderCard from "../../atoms/card/SliderCard";
-import Arrow from "../../atoms/arrow/Arrow";
-import { images } from "../../../assets/images";
+import SliderCard from "../atoms/SliderCard";
+import Arrow from "../atoms/Arrow";
+import { images } from "../../assets/images";
 import "react-alice-carousel/lib/alice-carousel.css";
 
 const Slider: React.FC = () => {

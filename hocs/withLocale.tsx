@@ -21,6 +21,8 @@ export default (WrappedPage: NextPage<any>) => {
     )
   }
 
+  
+
   WithLocale.getInitialProps = async ctx => {
     let pageProps = {}
     if (WrappedPage.getInitialProps) {

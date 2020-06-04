@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../slider/Slider";
+import Slider from "./Slider";
 import styled from "styled-components";
 
 const SliderContainer = styled.div`

@@ -66,6 +66,7 @@ const SliderCard: React.FC<SliderCardProps> = ({
         <PlayerContainer
           frameBorder="0"
           src="https://www.youtube.com/embed/jNgP6d9HraI?autoplay=1&amp;controls=0&amp;mute=1"
+          allowFullScreen
         />
       ) : (
         <img src={backgroundImage} width={width} height={height} />

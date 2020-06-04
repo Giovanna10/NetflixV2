@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import withLocale from "../../hocs/withLocale";
-import Navigation from "../../components/Navigation";
-import SliderWrapper from "../../components/molecules/sliderWrapper/SliderWrapper";
-import DailyEventWindow from "../../components/organisms/DailyEventWindow";
+import { LocaleContext } from "../../context/LocaleContext";
+import { useRouter } from "next/router";
 
 const IndexPage: React.FC = () => {
-  return (
-    <body style={{overflow: 'auto', margin: 0, backgroundColor: '#000000'}}>
-      <Navigation />
-      <DailyEventWindow />
-      <SliderWrapper />
-    </body>
-  );
+  const router = useRouter();
+  const { locale } = React.useContext(LocaleContext);
+  useEffect(() => {
+    router.push(`/${locale}/movies`);
+  });
+  return <></>;
 };
 
 export default withLocale(IndexPage);
