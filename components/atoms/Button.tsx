@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Icon, { Icons } from "./Icon";
-
+import { Text } from "./Text";
 
 interface ButtonProps {
   height?: string;
@@ -35,11 +35,6 @@ const ButtonComponent = styled.button<ButtonProps>`
   }
 `;
 
-const TextComponent = styled.p<ButtonProps>`
-  color: ${(props) => props.textColor};
-  font-size: ${(props) => props.textSize};
-`;
-
 const Button: React.FC<ButtonProps> = ({
   height,
   width,
@@ -71,9 +66,9 @@ const Button: React.FC<ButtonProps> = ({
           color="#000000"
         />
       )}
-      <TextComponent textColor={textColor} textSize={textSize}>
+      <Text color={textColor} size={textSize}>
         {text}
-      </TextComponent>
+      </Text>
     </ButtonComponent>
   );
 };

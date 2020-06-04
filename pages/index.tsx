@@ -1,14 +1,12 @@
-import React from 'react'
-import { getInitialLocale } from '../translations/getInitialLocale'
-import { Layout } from '../components/Layout'
+import React from "react";
+import { getInitialLocale } from "../translations/getInitialLocale";
+
 
 const Index: React.FC = () => {
   React.useEffect(() => {
-    window.location.replace(`/${getInitialLocale()}`)
-  })
-  return (
-    <Layout/>
-  )
-}
+    window.location.replace(`/${getInitialLocale()}`);
+  });
+  return <> </>;
+};
 
-export default Index
+export default Index;

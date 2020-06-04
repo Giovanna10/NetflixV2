@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Icon from "../Icon";
+import Icon from "./Icon";
 
 interface ArrowContainerProps {
   right?: boolean;
@@ -17,7 +17,7 @@ const ArrowContainer = styled.div<ArrowContainerProps>`
   bottom: 0;
   right: ${(props) => props.right && 0};
   width: 5%;
-  background-color: rgba(171, 167, 167, 0.65);
+  background-color: rgba(0, 0, 0, 0.65);
 `;
 
 const Arrow: React.FC<ArrowContainerProps> = ({
@@ -28,11 +28,11 @@ const Arrow: React.FC<ArrowContainerProps> = ({
   <>
     {right ? (
       <ArrowContainer right onClick={slideNext}>
-        <Icon name="rightArrow" width={25} height={25}/>
+        <Icon name="rightArrow" width={30} height={30}/>
       </ArrowContainer>
     ) : (
       <ArrowContainer onClick={slidePrev}>
-        <Icon name="leftArrow" width={25} height={25}/>
+        <Icon name="leftArrow" width={30} height={30}/>
       </ArrowContainer>
     )}
   </>

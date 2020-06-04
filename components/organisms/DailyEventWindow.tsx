@@ -1,6 +1,11 @@
 import React from "react";
 import Button from "../atoms/Button";
 import styled from "styled-components";
+import { Text } from "../atoms/Text";
+
+interface DailyEventWindowProps {
+  pippo?: string;
+}
 
 const DailyEventWindowContainer = styled.div`
   display: flex;
@@ -29,18 +34,19 @@ const ButtonsContainer = styled.div`
   margin-top: 75px;
 `;
 
-const DailyEventWindow: React.FC = () => {
+const DailyEventWindow: React.FC<DailyEventWindowProps> = (): React.ReactElement => {
   return (
     <DailyEventWindowContainer>
       <TextsContainer>
-        <h1> DailyEventWindow </h1>
-        <h2> Subtitle </h2>
-
-        <p>
+        <Text size={45} weight="bold" color="#fefefe">
+          {" "}
+          DailyEventWindow{" "}
+        </Text>
+        <Text size={20} color="#fefefe">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam,
           optio facere! Consectetur sequi ratione porro, sunt fugiat saepe illum
           aspernatur magni quis quas dolore distinctio!
-        </p>
+        </Text>
       </TextsContainer>
 
       <ButtonsContainer>
@@ -50,7 +56,7 @@ const DailyEventWindow: React.FC = () => {
           backgroundColor="#fefefe"
           text="Play"
           textColor="#000000"
-          textSize={18}
+          textSize={14}
           icon="playIcon"
           iconHeight={20}
           iconWidth={20}
@@ -62,7 +68,7 @@ const DailyEventWindow: React.FC = () => {
           backgroundColor="#fefefe"
           text="Other Info"
           textColor="#000000"
-          textSize={18}
+          textSize={14}
           icon="infoIcon"
           iconHeight={20}
           iconWidth={20}
