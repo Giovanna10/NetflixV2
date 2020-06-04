@@ -1,18 +1,36 @@
 import React, { useRef } from "react";
 import AliceCarousel from "react-alice-carousel";
-import SliderCard from "../../atoms/card/SliderCard";
-import Arrow from "../../atoms/arrow/Arrow";
-import { images } from "../../../assets/images";
+import SliderCard from "../atoms/SliderCard";
+import Arrow from "../atoms/Arrow";
 import "react-alice-carousel/lib/alice-carousel.css";
+import styled from "styled-components";
+import { Movie } from "../../types/types";
 
-const Slider: React.FC = () => {
-  const sliderItems = images.map((image) => (
+const {IMAGE_BASE_URL} = process.env
+
+const SliderContainer = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+`;
+
+interface SliderProps {
+  movies: Movie[]
+}
+
+const Slider: React.FC<SliderProps> = ({movies}) => {
+  const sliderItems = movies.map((movie) => {    
+    
+    return (
     <SliderCard
-      width={"300px"}
-      height={"200px"}
-      backgroundImage={image}
+      width={"250px"}
+      height={"130px"}
+      backgroundImage={`${IMAGE_BASE_URL}${movie.backdrop_path}`}
+      videoMovieKey={movie.id}
+      movieTitle={movie.original_title}
+      description={movie.overview}
     />
-  ));
+  )});
 
   const carouselRef = useRef<AliceCarousel>(null);
 
@@ -20,7 +38,7 @@ const Slider: React.FC = () => {
   const slideNext = () => carouselRef.current?.slideNext();
 
   return (
-    <>
+    <SliderContainer>
       <Arrow slidePrev={slidePrev} />
       <AliceCarousel
         responsive={{
@@ -36,9 +54,10 @@ const Slider: React.FC = () => {
         buttonsDisabled={true}
         ref={carouselRef}
         items={sliderItems}
+        infinite
       />
       <Arrow right slideNext={slideNext} />
-    </>
+    </SliderContainer>
   );
 };
 

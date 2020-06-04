@@ -1,5 +1,6 @@
 import React from "react";
 import PlayIcon from "../../assets/play.svg";
+import PlayCircle from "../../assets/play-circle.svg"
 import InfoIcon from "../../assets/information.svg";
 import RightArrow from "../../assets/arrow-right.svg"
 import LeftArrow from "../../assets/arrow-left.svg"
@@ -7,6 +8,7 @@ import LeftArrow from "../../assets/arrow-left.svg"
 
 export const Icons = {
   playIcon: PlayIcon,
+  playCircle: PlayCircle, 
   infoIcon: InfoIcon,
   rightArrow: RightArrow,
   leftArrow: LeftArrow

@@ -93,6 +93,121 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./api/apiInterceptor.ts":
+/*!*******************************!*\
+  !*** ./api/apiInterceptor.ts ***!
+  \*******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "axios");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+
+const {
+  BASE_URL
+} = process.env;
+const tmdb = axios__WEBPACK_IMPORTED_MODULE_0___default.a.create({
+  baseURL: BASE_URL
+});
+/* harmony default export */ __webpack_exports__["default"] = (tmdb);
+
+/***/ }),
+
+/***/ "./api/popular.ts":
+/*!************************!*\
+  !*** ./api/popular.ts ***!
+  \************************/
+/*! exports provided: getPopularMovie, getYoutubeVideoId */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getPopularMovie", function() { return getPopularMovie; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getYoutubeVideoId", function() { return getYoutubeVideoId; });
+/* harmony import */ var _apiInterceptor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiInterceptor */ "./api/apiInterceptor.ts");
+
+const {
+  KEY
+} = process.env;
+const getPopularMovie = async () => {
+  const params = {
+    api_key: KEY
+  };
+  const response = await _apiInterceptor__WEBPACK_IMPORTED_MODULE_0__["default"].get("/popular", {
+    params
+  });
+  const popularMovies = response.data.results.map(movie => {
+    const video = movie.video === false ? "" : movie.video;
+    return {
+      id: movie.id,
+      release_date: movie.release_date,
+      overview: movie.overview,
+      video: video,
+      poster_path: movie.poster_path,
+      backdrop_path: movie.backdrop_path,
+      original_language: movie.original_language,
+      original_title: movie.original_title,
+      genre_ids: movie.genre_ids
+    };
+  });
+  return popularMovies;
+};
+const getYoutubeVideoId = async id => {
+  const params = {
+    api_key: KEY
+  };
+  const response = await _apiInterceptor__WEBPACK_IMPORTED_MODULE_0__["default"].get(`/${id}/videos`, {
+    params
+  });
+  const videoId = response.data.results.length !== 0 && response.data.results[0].key;
+  return videoId;
+};
+
+/***/ }),
+
+/***/ "./api/upcoming.ts":
+/*!*************************!*\
+  !*** ./api/upcoming.ts ***!
+  \*************************/
+/*! exports provided: getUpcomingMovie */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUpcomingMovie", function() { return getUpcomingMovie; });
+/* harmony import */ var _apiInterceptor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./apiInterceptor */ "./api/apiInterceptor.ts");
+
+const {
+  KEY
+} = process.env;
+const getUpcomingMovie = async () => {
+  const params = {
+    api_key: KEY
+  };
+  const response = await _apiInterceptor__WEBPACK_IMPORTED_MODULE_0__["default"].get("/upcoming", {
+    params
+  });
+  const upcomingMovies = response.data.results.map(movie => {
+    const video = movie.video === false ? "" : movie.video;
+    return {
+      id: movie.id,
+      release_date: movie.release_date,
+      overview: movie.overview,
+      video: video,
+      poster_path: movie.poster_path,
+      backdrop_path: movie.backdrop_path,
+      original_language: movie.original_language,
+      original_title: movie.original_title,
+      genre_ids: movie.genre_ids
+    };
+  });
+  return upcomingMovies;
+};
+
+/***/ }),
+
 /***/ "./assets/arrow-left.svg":
 /*!*******************************!*\
   !*** ./assets/arrow-left.svg ***!
@@ -111,14 +226,15 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 var _ref =
 /*#__PURE__*/
 react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
-  d: "M153.433 255.991L381.037 18.033c4.063-4.26 3.917-11.01-.333-15.083-4.229-4.073-10.979-3.896-15.083.333L130.954 248.616c-3.937 4.125-3.937 10.625 0 14.75L365.621 508.7a10.65 10.65 0 007.708 3.292c2.646 0 5.313-.979 7.375-2.958 4.25-4.073 4.396-10.823.333-15.083l-227.604-237.96z"
+  d: "M268.708 256l136.083-128.531c14.104-14.104 21.875-32.854 21.875-52.802C426.667 33.5 393.167 0 352 0c-19.875 0-38.583 7.719-52.667 21.75L107.208 203.198c-10.396 10.385-17.438 23.448-20.375 37.813-1 4.979-1.5 10.021-1.5 14.99s.5 10.01 1.5 15.042c2.938 14.323 9.979 27.375 20.583 37.958l191.792 181.125C313.313 504.229 332.063 512 352 512c41.167 0 74.667-33.5 74.667-74.667 0-19.958-7.771-38.708-22.083-53.01L268.708 256z",
+  fill: "#fff"
 });
 
 function SvgArrowLeft(props) {
   return (
     /*#__PURE__*/
     react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
-      viewBox: "0 0 511.991 511.991"
+      viewBox: "0 0 512 512"
     }, props), _ref)
   );
 }
@@ -145,33 +261,20 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 var _ref =
 /*#__PURE__*/
 react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
-  d: "M381.039 248.62L146.373 3.287C142.29-.942 135.54-1.13 131.29 2.954c-4.25 4.073-4.396 10.823-.333 15.083L358.56 255.995 130.956 493.954c-4.063 4.26-3.917 11.01.333 15.083a10.63 10.63 0 007.375 2.958 10.65 10.65 0 007.708-3.292L381.039 263.37c3.938-4.125 3.938-10.625 0-14.75z"
+  d: "M425.167 240.958c-2.938-14.313-9.979-27.375-20.583-37.969L212.792 21.865C198.688 7.76 179.938 0 160 0c-41.167 0-74.667 33.5-74.667 74.667 0 19.958 7.771 38.708 22.083 53.01L243.292 256 107.208 384.531c-14.104 14.104-21.875 32.854-21.875 52.802C85.333 478.5 118.833 512 160 512c19.896 0 38.583-7.729 52.688-21.76l192.104-181.438c10.396-10.385 17.438-23.438 20.375-37.76 1-4.885 1.5-9.948 1.5-15.042 0-4.969-.5-10.01-1.5-15.042z",
+  fill: "#fff"
 });
 
 function SvgArrowRight(props) {
   return (
     /*#__PURE__*/
     react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
-      viewBox: "0 0 511.995 511.995"
+      viewBox: "0 0 512 512"
     }, props), _ref)
   );
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SvgArrowRight);
-
-/***/ }),
-
-/***/ "./assets/images.ts":
-/*!**************************!*\
-  !*** ./assets/images.ts ***!
-  \**************************/
-/*! exports provided: images */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "images", function() { return images; });
-const images = ["https://www.gettyimages.it/gi-resources/images/500px/983794168.jpg", "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg", "https://www.gettyimages.it/gi-resources/images/500px/983801190.jpg", "https://cdn.pixabay.com/photo/2015/06/19/21/24/the-road-815297__340.jpg", "https://cdn.pixabay.com/photo/2020/05/25/20/06/storm-5220380__340.jpg", "https://images.unsplash.com/photo-1538370965046-79c0d6907d47?ixlib=rb-1.2.1&w=1000&q=80"];
 
 /***/ }),
 
@@ -208,6 +311,48 @@ function SvgInformation(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (SvgInformation);
+
+/***/ }),
+
+/***/ "./assets/play-circle.svg":
+/*!********************************!*\
+  !*** ./assets/play-circle.svg ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+
+
+
+var _ref =
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("g", {
+  fill: "#d8d8d8"
+},
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M256 0C114.833 0 0 114.844 0 256s114.833 256 256 256 256-114.844 256-256S397.167 0 256 0zm0 490.667C126.604 490.667 21.333 385.396 21.333 256S126.604 21.333 256 21.333 490.667 126.604 490.667 256 385.396 490.667 256 490.667z"
+}),
+/*#__PURE__*/
+react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("path", {
+  d: "M357.771 247.031l-149.333-96c-3.271-2.135-7.5-2.25-10.875-.396A10.653 10.653 0 00192 160v192c0 3.906 2.125 7.49 5.563 9.365a10.68 10.68 0 005.104 1.302c2 0 4.021-.563 5.771-1.698l149.333-96c3.042-1.958 4.896-5.344 4.896-8.969s-1.854-7.01-4.896-8.969zm-144.438 85.427V179.542L332.271 256l-118.938 76.458z"
+}));
+
+function SvgPlayCircle(props) {
+  return (
+    /*#__PURE__*/
+    react__WEBPACK_IMPORTED_MODULE_0__["createElement"]("svg", _extends({
+      viewBox: "0 0 512 512"
+    }, props), _ref)
+  );
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (SvgPlayCircle);
 
 /***/ }),
 
@@ -333,6 +478,81 @@ const Navigation = () => {
 
 /***/ }),
 
+/***/ "./components/atoms/Arrow.tsx":
+/*!************************************!*\
+  !*** ./components/atoms/Arrow.tsx ***!
+  \************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Icon */ "./components/atoms/Icon.tsx");
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/Arrow.tsx";
+
+var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
+
+
+const ArrowContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: ${props => props.right && 0};
+  width: 5%;
+  background-color: rgba(0, 0, 0, 0.65);
+`;
+
+const Arrow = ({
+  right,
+  slidePrev,
+  slideNext
+}) => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, right ? __jsx(ArrowContainer, {
+  right: true,
+  onClick: slideNext,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 30
+  },
+  __self: undefined
+}, __jsx(_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  name: "rightArrow",
+  width: 30,
+  height: 30,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 31
+  },
+  __self: undefined
+})) : __jsx(ArrowContainer, {
+  onClick: slidePrev,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 34
+  },
+  __self: undefined
+}, __jsx(_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  name: "leftArrow",
+  width: 30,
+  height: 30,
+  __source: {
+    fileName: _jsxFileName,
+    lineNumber: 35
+  },
+  __self: undefined
+})));
+
+/* harmony default export */ __webpack_exports__["default"] = (Arrow);
+
+/***/ }),
+
 /***/ "./components/atoms/Button.tsx":
 /*!*************************************!*\
   !*** ./components/atoms/Button.tsx ***!
@@ -436,9 +656,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _assets_play_svg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../assets/play.svg */ "./assets/play.svg");
-/* harmony import */ var _assets_information_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/information.svg */ "./assets/information.svg");
-/* harmony import */ var _assets_arrow_right_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/arrow-right.svg */ "./assets/arrow-right.svg");
-/* harmony import */ var _assets_arrow_left_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/arrow-left.svg */ "./assets/arrow-left.svg");
+/* harmony import */ var _assets_play_circle_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/play-circle.svg */ "./assets/play-circle.svg");
+/* harmony import */ var _assets_information_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/information.svg */ "./assets/information.svg");
+/* harmony import */ var _assets_arrow_right_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/arrow-right.svg */ "./assets/arrow-right.svg");
+/* harmony import */ var _assets_arrow_left_svg__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../assets/arrow-left.svg */ "./assets/arrow-left.svg");
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/Icon.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
@@ -449,11 +670,13 @@ function _extends() { _extends = Object.assign || function (target) { for (var i
 
 
 
+
 const Icons = {
   playIcon: _assets_play_svg__WEBPACK_IMPORTED_MODULE_1__["default"],
-  infoIcon: _assets_information_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
-  rightArrow: _assets_arrow_right_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
-  leftArrow: _assets_arrow_left_svg__WEBPACK_IMPORTED_MODULE_4__["default"]
+  playCircle: _assets_play_circle_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
+  infoIcon: _assets_information_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
+  rightArrow: _assets_arrow_right_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
+  leftArrow: _assets_arrow_left_svg__WEBPACK_IMPORTED_MODULE_5__["default"]
 };
 
 const Icon = (_ref) => {
@@ -465,13 +688,13 @@ const Icon = (_ref) => {
   return IconComponent ? __jsx(IconComponent, _extends({}, props, {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 28
     },
     __self: undefined
   })) : __jsx("div", {
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 28
     },
     __self: undefined
   });
@@ -481,10 +704,10 @@ const Icon = (_ref) => {
 
 /***/ }),
 
-/***/ "./components/atoms/arrow/Arrow.tsx":
-/*!******************************************!*\
-  !*** ./components/atoms/arrow/Arrow.tsx ***!
-  \******************************************/
+/***/ "./components/atoms/SliderCard.tsx":
+/*!*****************************************!*\
+  !*** ./components/atoms/SliderCard.tsx ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -494,108 +717,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Icon */ "./components/atoms/Icon.tsx");
-var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/arrow/Arrow.tsx";
-
+/* harmony import */ var _api_popular__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../api/popular */ "./api/popular.ts");
+/* harmony import */ var _Text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Text */ "./components/atoms/Text.ts");
+/* harmony import */ var _Icon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Icon */ "./components/atoms/Icon.tsx");
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/SliderCard.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
-const ArrowContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: ${props => props.right && 0};
-  width: 5%;
-  background-color: rgba(171, 167, 167, 0.65);
-`;
 
-const Arrow = ({
-  right,
-  slidePrev,
-  slideNext
-}) => __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, right ? __jsx(ArrowContainer, {
-  right: true,
-  onClick: slideNext,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 30
-  },
-  __self: undefined
-}, __jsx(_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
-  name: "rightArrow",
-  width: 25,
-  height: 25,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 31
-  },
-  __self: undefined
-})) : __jsx(ArrowContainer, {
-  onClick: slidePrev,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 34
-  },
-  __self: undefined
-}, __jsx(_Icon__WEBPACK_IMPORTED_MODULE_2__["default"], {
-  name: "leftArrow",
-  width: 25,
-  height: 25,
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 35
-  },
-  __self: undefined
-})));
-
-/* harmony default export */ __webpack_exports__["default"] = (Arrow);
-
-/***/ }),
-
-/***/ "./components/atoms/card/SliderCard.tsx":
-/*!**********************************************!*\
-  !*** ./components/atoms/card/SliderCard.tsx ***!
-  \**********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
-var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/atoms/card/SliderCard.tsx";
-var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 const CardContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div`
-  border: ${props => props.border ? `${props.border}px solid` : "0.5px solid"};
+  border: ${props => props.border ? `${props.border}px solid` : "0"};
   width: ${props => props.width ? `${props.width}` : "100%"};
   height: ${props => props.height ? `${props.height}` : "100%"};
   margin: ${props => props.margin};
 `;
+const Opacity = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div`
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.50);
+  height: 100%;
+  width: ${props => props.width};
+  z-index: 1;
+`;
+const ImageContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.img`
+  position: absolute;
+  width: ${props => props.width ? `${props.width}` : "100%"};
+  height: ${props => props.height ? `${props.height}` : "100%"};
+  z-index: 0;
+`;
+const IconContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.div`
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+`;
 const PlayerContainer = styled_components__WEBPACK_IMPORTED_MODULE_1___default.a.iframe`
   width: ${props => props.width ? `${props.width}px` : "100%"};
   height: ${props => props.height ? `${props.height}px` : "100%"};
-  transform: scale(1.2);
-  transition: 0.8s ease 0.8s;
+  transform: scale(1.3);
+  & .ytp-chrome-top{
+    display: none;
+  }
 `;
 
 const SliderCard = ({
   width,
   height,
-  margin,
-  backgroundImage
+  backgroundImage,
+  videoMovieKey,
+  movieTitle
 }) => {
   const {
     0: isHover,
     1: setIsHover
   } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false);
+  const {
+    0: videoId,
+    1: setVideoId
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("");
 
   const handleMouseEnter = () => {
     setIsHover(true);
@@ -605,46 +787,124 @@ const SliderCard = ({
     setIsHover(false);
   };
 
+  const getVideoMovie = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(async () => {
+    let id = "";
+
+    if (videoMovieKey !== undefined) {
+      id = await Object(_api_popular__WEBPACK_IMPORTED_MODULE_2__["getYoutubeVideoId"])(videoMovieKey);
+    }
+
+    setVideoId(id);
+  }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getVideoMovie();
+  }, []);
   return __jsx(CardContainer, {
     onMouseEnter: () => handleMouseEnter(),
     onMouseLeave: () => handleMouseLeave(),
-    width: width,
     height: height,
-    margin: margin,
-    backgroundImage: isHover ? "" : backgroundImage,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 57
+      lineNumber: 110
     },
     __self: undefined
   }, isHover ? __jsx(PlayerContainer, {
     frameBorder: "0",
-    src: "https://www.youtube.com/embed/jNgP6d9HraI?autoplay=1&controls=0&mute=1",
+    allowFullScreen: true,
+    src: `https://www.youtube.com/embed/${videoId}?autoplay=1&showinfo=0&controls=0&mute=1`,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 116
     },
     __self: undefined
-  }) : __jsx("img", {
+  }) : __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(ImageContainer, {
     src: backgroundImage,
-    width: width,
     height: height,
+    width: width,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 123
     },
     __self: undefined
-  }));
+  }), __jsx(Opacity, {
+    width: width,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 124
+    },
+    __self: undefined
+  }, __jsx(IconContainer, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 125
+    },
+    __self: undefined
+  }, __jsx(_Icon__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    name: "playCircle",
+    height: 45,
+    width: 45,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 126
+    },
+    __self: undefined
+  })), __jsx(_Text__WEBPACK_IMPORTED_MODULE_3__["Text"], {
+    size: 20,
+    color: "#e3e3e3",
+    weight: "bold",
+    marginTop: "10%",
+    marginLeft: "5%",
+    family: "Arial, sans-serif",
+    overflow: "hidden",
+    whiteSpace: "nowrap",
+    textOverflow: "ellipsis",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 128
+    },
+    __self: undefined
+  }, movieTitle))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SliderCard);
 
 /***/ }),
 
-/***/ "./components/molecules/slider/Slider.tsx":
-/*!************************************************!*\
-  !*** ./components/molecules/slider/Slider.tsx ***!
-  \************************************************/
+/***/ "./components/atoms/Text.ts":
+/*!**********************************!*\
+  !*** ./components/atoms/Text.ts ***!
+  \**********************************/
+/*! exports provided: Text */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Text", function() { return Text; });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_0__);
+
+const Text = styled_components__WEBPACK_IMPORTED_MODULE_0___default.a.p`
+  font-size: ${props => `${props.size}px`};
+  font-family: ${props => props.family};
+  color: ${props => props.color};
+  font-weight: ${props => props.weight};
+  margin-top: ${props => props.marginTop};
+  margin-bottom: ${props => props.marginBottom};
+  margin-right: ${props => props.marginRight};
+  margin-left: ${props => props.marginLeft};
+  height: ${props => props.height};
+  line-height: ${props => props.lineHeight};
+  white-space: ${props => props.whiteSpace};
+  overflow: ${props => props.overflow};
+  text-overflow: ${props => props.textOverflow};
+`;
+
+/***/ }),
+
+/***/ "./components/molecules/Slider.tsx":
+/*!*****************************************!*\
+  !*** ./components/molecules/Slider.tsx ***!
+  \*****************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -654,12 +914,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_alice_carousel__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-alice-carousel */ "react-alice-carousel");
 /* harmony import */ var react_alice_carousel__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../atoms/card/SliderCard */ "./components/atoms/card/SliderCard.tsx");
-/* harmony import */ var _atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../atoms/arrow/Arrow */ "./components/atoms/arrow/Arrow.tsx");
-/* harmony import */ var _assets_images__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../assets/images */ "./assets/images.ts");
-/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-alice-carousel/lib/alice-carousel.css */ "./node_modules/react-alice-carousel/lib/alice-carousel.css");
-/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_5__);
-var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/molecules/slider/Slider.tsx";
+/* harmony import */ var _atoms_SliderCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../atoms/SliderCard */ "./components/atoms/SliderCard.tsx");
+/* harmony import */ var _atoms_Arrow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../atoms/Arrow */ "./components/atoms/Arrow.tsx");
+/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-alice-carousel/lib/alice-carousel.css */ "./node_modules/react-alice-carousel/lib/alice-carousel.css");
+/* harmony import */ var react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_alice_carousel_lib_alice_carousel_css__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_5__);
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/molecules/Slider.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
@@ -667,18 +928,33 @@ var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+const {
+  IMAGE_BASE_URL
+} = process.env;
+const SliderContainer = styled_components__WEBPACK_IMPORTED_MODULE_5___default.a.div`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+`;
 
-const Slider = () => {
-  const sliderItems = _assets_images__WEBPACK_IMPORTED_MODULE_4__["images"].map(image => __jsx(_atoms_card_SliderCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
-    width: "300px",
-    height: "200px",
-    backgroundImage: image,
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 10
-    },
-    __self: undefined
-  }));
+const Slider = ({
+  movies
+}) => {
+  const sliderItems = movies.map(movie => {
+    return __jsx(_atoms_SliderCard__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      width: "250px",
+      height: "130px",
+      backgroundImage: `${IMAGE_BASE_URL}${movie.backdrop_path}`,
+      videoMovieKey: movie.id,
+      movieTitle: movie.original_title,
+      description: movie.overview,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 25
+      },
+      __self: undefined
+    });
+  });
   const carouselRef = Object(react__WEBPACK_IMPORTED_MODULE_0__["useRef"])(null);
 
   const slidePrev = () => {
@@ -693,11 +969,17 @@ const Slider = () => {
     return (_carouselRef$current2 = carouselRef.current) === null || _carouselRef$current2 === void 0 ? void 0 : _carouselRef$current2.slideNext();
   };
 
-  return __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  return __jsx(SliderContainer, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: undefined
+  }, __jsx(_atoms_Arrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
     slidePrev: slidePrev,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 24
+      lineNumber: 42
     },
     __self: undefined
   }), __jsx(react_alice_carousel__WEBPACK_IMPORTED_MODULE_1___default.a, {
@@ -714,17 +996,18 @@ const Slider = () => {
     buttonsDisabled: true,
     ref: carouselRef,
     items: sliderItems,
+    infinite: true,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 43
     },
     __self: undefined
-  }), __jsx(_atoms_arrow_Arrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), __jsx(_atoms_Arrow__WEBPACK_IMPORTED_MODULE_3__["default"], {
     right: true,
     slideNext: slideNext,
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 40
+      lineNumber: 59
     },
     __self: undefined
   }));
@@ -734,10 +1017,10 @@ const Slider = () => {
 
 /***/ }),
 
-/***/ "./components/molecules/sliderWrapper/SliderWrapper.tsx":
-/*!**************************************************************!*\
-  !*** ./components/molecules/sliderWrapper/SliderWrapper.tsx ***!
-  \**************************************************************/
+/***/ "./components/molecules/SliderWrapper.tsx":
+/*!************************************************!*\
+  !*** ./components/molecules/SliderWrapper.tsx ***!
+  \************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -745,33 +1028,92 @@ const Slider = () => {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _slider_Slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../slider/Slider */ "./components/molecules/slider/Slider.tsx");
+/* harmony import */ var _Slider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Slider */ "./components/molecules/Slider.tsx");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
-var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/molecules/sliderWrapper/SliderWrapper.tsx";
+/* harmony import */ var _atoms_Text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../atoms/Text */ "./components/atoms/Text.ts");
+/* harmony import */ var _api_popular__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../api/popular */ "./api/popular.ts");
+/* harmony import */ var _api_upcoming__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../api/upcoming */ "./api/upcoming.ts");
+var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/components/molecules/SliderWrapper.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
 
 
 
+
+
+
 const SliderContainer = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
+  margin-top: 50px;
+  margin-bottom: 50px;
 `;
 
-const SliderWrapper = () => __jsx(SliderContainer, {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 12
-  },
-  __self: undefined
-}, __jsx(_slider_Slider__WEBPACK_IMPORTED_MODULE_1__["default"], {
-  __source: {
-    fileName: _jsxFileName,
-    lineNumber: 13
-  },
-  __self: undefined
-}));
+const SliderWrapper = () => {
+  const {
+    0: popularMovie,
+    1: setPopulars
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const {
+    0: upcomingMovie,
+    1: setUpcoming
+  } = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]);
+  const getPopulars = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(async () => {
+    const populars = await Object(_api_popular__WEBPACK_IMPORTED_MODULE_4__["getPopularMovie"])();
+    setPopulars(populars);
+  }, []);
+  const getUpcoming = Object(react__WEBPACK_IMPORTED_MODULE_0__["useCallback"])(async () => {
+    const upcoming = await Object(_api_upcoming__WEBPACK_IMPORTED_MODULE_5__["getUpcomingMovie"])();
+    setUpcoming(upcoming);
+  }, []);
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    getPopulars();
+    getUpcoming();
+  }, [getPopulars, getUpcoming]);
+  return __jsx(SliderContainer, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 33
+    },
+    __self: undefined
+  }, __jsx(_atoms_Text__WEBPACK_IMPORTED_MODULE_3__["Text"], {
+    size: 20,
+    color: "#fefefe",
+    weight: 600,
+    style: {
+      marginLeft: '0.8em'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 34
+    },
+    __self: undefined
+  }, "Popular"), __jsx(_Slider__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    movies: popularMovie,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 37
+    },
+    __self: undefined
+  }), __jsx(_atoms_Text__WEBPACK_IMPORTED_MODULE_3__["Text"], {
+    size: 20,
+    color: "#fefefe",
+    weight: 600,
+    style: {
+      marginLeft: '0.8em'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 38
+    },
+    __self: undefined
+  }, "Upcoming"), __jsx(_Slider__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    movies: upcomingMovie,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 41
+    },
+    __self: undefined
+  }));
+};
 
 /* harmony default export */ __webpack_exports__["default"] = (SliderWrapper);
 
@@ -1689,7 +2031,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _hocs_withLocale__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hocs/withLocale */ "./hocs/withLocale.tsx");
 /* harmony import */ var _components_Navigation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/Navigation */ "./components/Navigation.tsx");
-/* harmony import */ var _components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/molecules/sliderWrapper/SliderWrapper */ "./components/molecules/sliderWrapper/SliderWrapper.tsx");
+/* harmony import */ var _components_molecules_SliderWrapper__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/molecules/SliderWrapper */ "./components/molecules/SliderWrapper.tsx");
 /* harmony import */ var _components_organisms_DailyEventWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/organisms/DailyEventWindow */ "./components/organisms/DailyEventWindow.tsx");
 var _jsxFileName = "/Users/giovannaradica/Desktop/Projects/NetflixV2/pages/[lang]/index.tsx";
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -1723,7 +2065,7 @@ const IndexPage = () => {
       lineNumber: 11
     },
     __self: undefined
-  }), __jsx(_components_molecules_sliderWrapper_SliderWrapper__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  }), __jsx(_components_molecules_SliderWrapper__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 12
@@ -1784,6 +2126,17 @@ function isLocale(tested) {
 
 module.exports = __webpack_require__(/*! /Users/giovannaradica/Desktop/Projects/NetflixV2/pages/[lang]/index.tsx */"./pages/[lang]/index.tsx");
 
+
+/***/ }),
+
+/***/ "axios":
+/*!************************!*\
+  !*** external "axios" ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
 
 /***/ }),
 
