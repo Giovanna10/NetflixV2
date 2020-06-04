@@ -28,11 +28,11 @@ const Arrow: React.FC<ArrowContainerProps> = ({
   <>
     {right ? (
       <ArrowContainer right onClick={slideNext}>
-        <Icon name="rightArrow" width={25} height={25}/>
+        <Icon name="rightArrow" width={30} height={30}/>
       </ArrowContainer>
     ) : (
       <ArrowContainer onClick={slidePrev}>
-        <Icon name="leftArrow" width={25} height={25}/>
+        <Icon name="leftArrow" width={30} height={30}/>
       </ArrowContainer>
     )}
   </>
