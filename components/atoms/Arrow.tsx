@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Icon from "./Icon";
 
 interface ArrowContainerProps {
+  show?: boolean;
   right?: boolean;
   slidePrev?: () => void;
   slideNext?: () => void;
@@ -24,17 +25,19 @@ const Arrow: React.FC<ArrowContainerProps> = ({
   right,
   slidePrev,
   slideNext,
+  show,
 }) => (
   <>
-    {right ? (
+    {!show ? null : right ? (
       <ArrowContainer right onClick={slideNext}>
-        <Icon name="rightArrow" width={30} height={30}/>
+        <Icon name="rightArrow" width={30} height={30} />
       </ArrowContainer>
     ) : (
       <ArrowContainer onClick={slidePrev}>
-        <Icon name="leftArrow" width={30} height={30}/>
+        <Icon name="leftArrow" width={30} height={30} />
       </ArrowContainer>
     )}
+    }
   </>
 );
 

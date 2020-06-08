@@ -1,15 +1,15 @@
 import React from "react";
 import DailyEventWindow from "../../components/organisms/DailyEventWindow";
-import SliderWrapper from "../../components/molecules/SliderWrapper";
+import Slider from "../../components/organisms/Slider";
 import Layout from "../../components/Layout";
 import withLocale from "../../hocs/withLocale";
-// import styled from "styled-components";
 
 const Tv_Series: React.FC = () => {
   return (
     <Layout>
       <DailyEventWindow />
-      <SliderWrapper />
+      <Slider popularS sliderTilte="Popular Series"/>
+      <Slider airingS sliderTilte="Airing Today"/>
     </Layout>
   );
 };

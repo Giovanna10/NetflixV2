@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import styled from "styled-components";
-import { getYoutubeVideoId } from "../../api/popular";
+import { getYoutubeVideoId } from "../../api/videos/videos";
 import { Text } from "./Text";
 import Icon from "./Icon";
 
@@ -12,6 +12,7 @@ interface SliderCardProps {
   videoMovieKey?: number;
   movieTitle?: string;
   description?: string;
+  isMovie?: boolean; 
 }
 
 interface CardContainerProps {
@@ -71,9 +72,6 @@ const PlayerContainer = styled.iframe<PlayerContainerProps>`
   width: ${(props) => (props.width ? `${props.width}px` : "100%")};
   height: ${(props) => (props.height ? `${props.height}px` : "100%")};
   transform: scale(1.3);
-  & .ytp-chrome-top {
-    display: none;
-  }
 `;
 
 const SliderCard: React.FC<SliderCardProps> = ({
@@ -82,29 +80,36 @@ const SliderCard: React.FC<SliderCardProps> = ({
   backgroundImage,
   videoMovieKey,
   movieTitle,
+  isMovie
 }) => {
   const [isHover, setIsHover] = useState<boolean>(false);
   const [videoId, setVideoId] = useState<string>("");
+  
+  let time: number = 0
 
   const handleMouseEnter = () => {
-    setIsHover(true);
+    time = setTimeout(() => setIsHover(true), 1000)    
   };
 
   const handleMouseLeave = () => {
+    clearTimeout(time)
     setIsHover(false);
   };
 
   const getVideoMovie = useCallback(async () => {
     let id = "";
+    const boolean = isMovie ? true : false
     if (videoMovieKey !== undefined) {
-      id = await getYoutubeVideoId(videoMovieKey);
+      id = await getYoutubeVideoId(videoMovieKey, boolean);
     }
     setVideoId(id);
-  }, []);
+  }, [videoMovieKey]);
+
 
   useEffect(() => {
     getVideoMovie();
-  }, []);
+  }, [getVideoMovie]);  
+
 
   return (
     <CardContainer

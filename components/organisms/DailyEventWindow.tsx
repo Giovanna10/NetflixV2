@@ -1,18 +1,26 @@
-import React from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import Button from "../atoms/Button";
 import styled from "styled-components";
 import { Text } from "../atoms/Text";
+import { Film } from "../../types/types";
+import { getNowPlayingMovie } from "../../api/movies/nowPlaying";
 
 interface DailyEventWindowProps {
   pippo?: string;
 }
 
-const DailyEventWindowContainer = styled.div`
+interface DailyContainerProps {
+  bgImg?: string;
+}
+
+const {IMAGE_BASE_URL} = process.env
+
+const DailyEventWindowContainer = styled.div<DailyContainerProps>`
   display: flex;
   flex-direction: column;
   height: 650px;
   width: 100%;
-  background-image: url("https://img2.tgcom24.mediaset.it/binary/fotogallery/istockphoto/41.$plit/C_2_fotogallery_3084643_9_image.jpg?20171215053032");
+  background-image: url(${props => `${IMAGE_BASE_URL}/w500/${props.bgImg}`});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -35,17 +43,31 @@ const ButtonsContainer = styled.div`
 `;
 
 const DailyEventWindow: React.FC<DailyEventWindowProps> = (): React.ReactElement => {
+  const [playingMovie, setPlayingMovie] = useState<Film>({
+    id: 0,
+    release_date: "",
+    overview: "",
+    poster_path: "",
+    backdrop_path: "",
+    language: "",
+    title: "",
+    genre_ids: [],
+  })
+  const getPlayingMovie = useCallback(async() => {
+    setPlayingMovie(await getNowPlayingMovie())
+  }, [])
+
+  useEffect(() => {
+    getPlayingMovie()
+  }, [getPlayingMovie])
   return (
-    <DailyEventWindowContainer>
+    <DailyEventWindowContainer bgImg={playingMovie.backdrop_path}>
       <TextsContainer>
         <Text size={45} weight="bold" color="#fefefe">
-          {" "}
-          DailyEventWindow{" "}
+          {playingMovie.title}
         </Text>
         <Text size={20} color="#fefefe">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam,
-          optio facere! Consectetur sequi ratione porro, sunt fugiat saepe illum
-          aspernatur magni quis quas dolore distinctio!
+          {playingMovie.overview}
         </Text>
       </TextsContainer>
 

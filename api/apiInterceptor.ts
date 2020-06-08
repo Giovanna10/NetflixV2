@@ -6,4 +6,4 @@ const tmdb = axios.create({
   baseURL: BASE_URL,
 });
 
-export default tmdb;
+export default tmdb
