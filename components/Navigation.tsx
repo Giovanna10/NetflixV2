@@ -16,6 +16,12 @@ const NavigatorContainer = styled.div`
  flex-direction row;
  align-items: center;
  justify-content: space-between;
+ position: absolute;
+ right: 0;
+ left: 0;
+ height: 50px;
+ background-color: #000000;
+ z-index: 10;
 `;
 
 const NavigatorTitles = styled.div`

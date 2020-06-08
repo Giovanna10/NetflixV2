@@ -121,7 +121,7 @@ const SliderCard: React.FC<SliderCardProps> = ({
         <PlayerContainer
           frameBorder="0"
           allowFullScreen
-          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&showinfo=0&controls=0&mute=1`}
+          src={`https://www.youtube.com/embed/${videoId}?autoplay=1&controls=0&mute=1`}
         />
       ) : (
         <>

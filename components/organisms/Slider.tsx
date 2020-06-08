@@ -17,6 +17,14 @@ const SliderContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
+  margin-top: 45px;
+`;
+
+const TitleContainer = styled.div`
+  position: absolute;
+  right: 0;
+  left: 0;
+  z-index: 10;
 `;
 
 interface SliderProps {
@@ -33,11 +41,10 @@ const Slider: React.FC<SliderProps> = ({
   airingS,
   popularS,
   sliderTilte,
-}):React.ReactElement => {
-
+}): React.ReactElement => {
   const [films, setFilms] = useState<Film[]>([]);
-  const [isOver, setIsOver] = useState<boolean>(false)
-  const isMovie = upcomingM || popularM ? true : airingS || popularS && false
+  const [isOver, setIsOver] = useState<boolean>(false);
+  const isMovie = upcomingM || popularM ? true : airingS || (popularS && false);
 
   const getFilms = useCallback(async () => {
     const popularsMovies = await getPopularMovie();
@@ -82,21 +89,26 @@ const Slider: React.FC<SliderProps> = ({
         isMovie={isMovie}
       />
     );
-  });  
+  });
 
   return (
     <>
-      <Text
-        size={20}
-        color="#fefefe"
-        weight={600}
-        marginLeft="0.8em"
-        marginTop="0.5em"
-        marginBottom="0.5em"
+      <TitleContainer>
+        <Text
+          size={20}
+          color="#fefefe"
+          weight={600}
+          marginLeft="0.8em"
+          marginTop="0.5em"
+          marginBottom="0.5em"
+        >
+          {sliderTilte}
+        </Text>
+      </TitleContainer>
+      <SliderContainer
+        onMouseOver={() => setIsOver(true)}
+        onMouseLeave={() => setIsOver(false)}
       >
-        {sliderTilte}
-      </Text>
-      <SliderContainer onMouseOver={() => setIsOver(true)} onMouseLeave={() => setIsOver(false)}>
         <Arrow slidePrev={slidePrev} show={isOver} />
         <AliceCarousel
           responsive={{
@@ -112,6 +124,7 @@ const Slider: React.FC<SliderProps> = ({
           buttonsDisabled={true}
           ref={carouselRef}
           items={items}
+          infinite
         />
         <Arrow right slideNext={slideNext} show={isOver} />
       </SliderContainer>

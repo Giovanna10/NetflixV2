@@ -37,7 +37,6 @@ const Arrow: React.FC<ArrowContainerProps> = ({
         <Icon name="leftArrow" width={30} height={30} />
       </ArrowContainer>
     )}
-    }
   </>
 );
 

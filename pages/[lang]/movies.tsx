@@ -8,8 +8,8 @@ const Movies: React.FC = () => {
   return (
     <Layout>
       <DailyEventWindow />
-      <Slider upcomingM sliderTilte="Upcoming Movies"/>
-      <Slider popularM sliderTilte="Popular Movies"/>
+      <Slider upcomingM sliderTilte="Upcoming Movies" />
+      <Slider popularM sliderTilte="Popular Movies" />
     </Layout>
   );
 };
