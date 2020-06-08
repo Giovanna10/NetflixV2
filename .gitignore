@@ -1,6 +1,2 @@
 node_modules
-.next
-.next/cache/autodll-webpack-plugin
-.next/server/static
-.next/static/runtime
-.next/static/development
+*.next
