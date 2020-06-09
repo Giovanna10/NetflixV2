@@ -17,6 +17,7 @@ interface TextProps {
   overflow?: string;
   textOverflow?: string;
   whiteSpace?: string;
+  align?: string;
 }
 
 export const Text = styled.p<TextProps>`
@@ -35,4 +36,5 @@ export const Text = styled.p<TextProps>`
   white-space: ${(props) => props.whiteSpace};
   overflow: ${(props) => props.overflow};
   text-overflow: ${(props) => props.textOverflow};
+  text-align: ${(props) => props.align};
 `;

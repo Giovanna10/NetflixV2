@@ -16,7 +16,7 @@ const ArrowContainer = styled.div<ArrowContainerProps>`
   position: absolute;
   top: 0;
   bottom: 0;
-  right: ${(props) => props.right && 0};
+  right: ${(props) => props.right && "0"};
   width: 5%;
   background-color: rgba(0, 0, 0, 0.65);
 `;

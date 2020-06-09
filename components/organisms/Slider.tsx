@@ -101,6 +101,7 @@ const Slider: React.FC<SliderProps> = ({
           marginLeft="0.8em"
           marginTop="0.5em"
           marginBottom="0.5em"
+          family="Arial, Helvetica, sans-serif"
         >
           {sliderTilte}
         </Text>

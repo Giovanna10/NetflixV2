@@ -16,6 +16,9 @@ interface ButtonProps {
   backgroundColor?: string;
   justifyContent?: "center" | "space-between" | "space-around";
   opacity?: number;
+  border?: string;
+  borderColor?: string;
+  backgroundColorOnFocus?: string;
   cta?: () => void;
 }
 
@@ -29,9 +32,12 @@ const ButtonComponent = styled.button<ButtonProps>`
   border-radius: ${(props) => props.rounded};
   background: ${(props) => props.backgroundColor};
   cursor: pointer;
+  border: ${(props) => props.border};
+  border-color: ${(props) => props.borderColor};
   opacity: ${(props) => props.opacity};
   &:focus {
     outline: 0;
+    background-color: ${(props) => props.backgroundColorOnFocus};
   }
 `;
 
@@ -48,6 +54,10 @@ const Button: React.FC<ButtonProps> = ({
   backgroundColor,
   justifyContent,
   opacity,
+  border,
+  borderColor,
+  backgroundColorOnFocus,
+  cta,
 }) => {
   return (
     <ButtonComponent
@@ -57,6 +67,10 @@ const Button: React.FC<ButtonProps> = ({
       backgroundColor={backgroundColor}
       justifyContent={justifyContent}
       opacity={opacity}
+      onClick={cta}
+      border={border}
+      borderColor={borderColor}
+      backgroundColorOnFocus={backgroundColorOnFocus}
     >
       {icon && (
         <Icon
