@@ -1,11 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
-// import useTranslation from '../hooks/useTranslation'
-import LocaleSwitcher from "./LocaleSwitcher";
-import Icon from "./atoms/Icon";
+import LocaleSwitcher from "../atoms/LocaleSwitcher";
+import Icon from "../atoms/Icon";
 import styled from "styled-components";
-import { Text } from "./atoms/Text";
-import { LocaleContext } from "../context/LocaleContext";
+import { LocaleContext } from "../../context/LocaleContext";
+import Tab from "../atoms/Tab";
 
 interface NavigationProps {
   pippo?: string;
@@ -40,12 +39,9 @@ const LocaleSwitcherContainer = styled.div`
 `;
 
 const Navigation: React.FC<NavigationProps> = (): React.ReactElement => {
-  // const { locale, t } = useTranslation()
   const router = useRouter();
   const { locale } = React.useContext(LocaleContext);
-  const RouteName = router.asPath.split("/")[2];
-  const MoviesRouteName = "movies";
-  const TvSeriesRouteName = "tv_series";
+  const routeName = router.asPath.split("/")[2];
 
   const handleRoute = (url: string): void => {
     router.push(`/${locale}/${url}`);
@@ -55,28 +51,16 @@ const Navigation: React.FC<NavigationProps> = (): React.ReactElement => {
     <NavigatorContainer>
       <NavigatorTitles>
         <Icon name="logo" height={55} width={120} />
-        <Text
-          size={13}
-          weight="bold"
-          color={RouteName === MoviesRouteName ? "#01d277" : "#fefefe"}
-          family="Arial, Helvetica, sans-serif"
-          decoration="none"
-          cursor="pointer"
-          onClick={() => handleRoute("movies")}
-        >
-          MOVIES
-        </Text>
-        <Text
-          size={13}
-          weight="bold"
-          color={RouteName === TvSeriesRouteName ? "#01d277" : "#fefefe"}
-          family="Arial, Helvetica, sans-serif"
-          decoration="none"
-          cursor="pointer"
-          onClick={() => handleRoute("tv_series")}
-        >
-          TV SERIES
-        </Text>
+        <Tab
+          color={routeName === "movies" ? "#01d277" : "#fefefe"}
+          tabText="MOVIES"
+          cta={() => handleRoute("movies")}
+        />
+        <Tab
+          color={routeName === "tv_series" ? "#01d277" : "#fefefe"}
+          tabText="TV SERIES"
+          cta={() => handleRoute("tv_series")}
+        />
       </NavigatorTitles>
       <LocaleSwitcherContainer>
         <LocaleSwitcher />

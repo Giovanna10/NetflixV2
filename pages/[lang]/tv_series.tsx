@@ -7,7 +7,7 @@ import withLocale from "../../hocs/withLocale";
 const Tv_Series: React.FC = () => {
   return (
     <Layout>
-      <DailyEventWindow />
+      <DailyEventWindow movie={false}/>
       <Slider popularS sliderTilte="Popular Series"/>
       <Slider airingS sliderTilte="Airing Today"/>
     </Layout>

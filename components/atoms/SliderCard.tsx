@@ -88,7 +88,7 @@ const SliderCard: React.FC<SliderCardProps> = ({
   let time: number = 0
 
   const handleMouseEnter = () => {
-    time = setTimeout(() => setIsHover(true), 1000)    
+    time = setTimeout(() => setIsHover(true), 1100)    
   };
 
   const handleMouseLeave = () => {

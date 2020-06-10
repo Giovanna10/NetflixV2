@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { locales, languageNames } from "../translations/config";
-import { LocaleContext } from "../context/LocaleContext";
+import { locales, languageNames } from "../../translations/config";
+import { LocaleContext } from "../../context/LocaleContext";
 import styled from "styled-components";
 
 const SelectContainer = styled.select`

@@ -11,21 +11,21 @@
 
 .alice-carousel__stage:focus-within .alice-carousel__stage-item,
 .alice-carousel__stage:hover li{
-  transition: 0.5s ease .6s;
+  transition: 0.5s ease 1.1s;
   transition-duration: .8s;
   transform: translateX(-30%);
 }
 
 .alice-carousel__stage-item:focus ~ .alice-carousel__stage-item,
 .alice-carousel__stage-item:hover ~ .alice-carousel__stage-item {
-  transition-duration: .8s;
+  transition-duration: 1.1s;
   transform: translateX(30%);
 }
 
 .alice-carousel__stage .alice-carousel__stage-item:focus,
 .alice-carousel__stage .alice-carousel__stage-item:hover {
   transform: scale(1.3);
-  transition-delay: .6s;
+  transition-delay: 1s;
   transition-duration: .8s;
   z-index: 1;
 }

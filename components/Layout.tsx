@@ -1,4 +1,4 @@
-import Navigation from "./Navigation";
+import Navigation from "./molecols/Navigation";
 
 const Layout: React.FC = ({ children }): React.ReactElement => {
   return (

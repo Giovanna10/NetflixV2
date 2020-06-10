@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import {motion} from 'framer-motion'
 interface TextProps {
   size?: number;
   color?: string;
@@ -20,7 +20,7 @@ interface TextProps {
   align?: string;
 }
 
-export const Text = styled.p<TextProps>`
+export const Text = styled(motion.p)<TextProps>`
   font-size: ${(props) => props.size}px;
   color: ${(props) => props.color};
   font-weight: ${(props) => props.weight};

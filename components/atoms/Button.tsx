@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Icon, { Icons } from "./Icon";
 import { Text } from "./Text";
-
+import {motion} from 'framer-motion'
 interface ButtonProps {
   height?: string;
   width?: string;
@@ -22,7 +22,7 @@ interface ButtonProps {
   cta?: () => void;
 }
 
-const ButtonComponent = styled.button<ButtonProps>`
+const ButtonComponent = styled(motion.button)<ButtonProps>`
   height: ${(props) => (props.height ? props.height : "20px")};
   width: ${(props) => (props.width ? props.width : "50px")};
   display: flex;
@@ -71,6 +71,11 @@ const Button: React.FC<ButtonProps> = ({
       border={border}
       borderColor={borderColor}
       backgroundColorOnFocus={backgroundColorOnFocus}
+      whileHover={{
+        scale: 1.2,
+        transition: { duration: 1 },
+      }}
+      whileTap={{ scale: 0.9 }}
     >
       {icon && (
         <Icon
