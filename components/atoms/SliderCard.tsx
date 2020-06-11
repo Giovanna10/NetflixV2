@@ -12,7 +12,7 @@ interface SliderCardProps {
   videoMovieKey?: number;
   movieTitle?: string;
   description?: string;
-  isMovie?: boolean; 
+  isMovie?: boolean;
 }
 
 interface CardContainerProps {
@@ -48,7 +48,7 @@ const Opacity = styled.div<OpacityProps>`
   position: absolute;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.35);
   height: 100%;
   width: ${(props) => props.width};
   z-index: 1;
@@ -80,36 +80,35 @@ const SliderCard: React.FC<SliderCardProps> = ({
   backgroundImage,
   videoMovieKey,
   movieTitle,
-  isMovie
+  isMovie,
 }) => {
+
   const [isHover, setIsHover] = useState<boolean>(false);
   const [videoId, setVideoId] = useState<string>("");
-  
-  let time: number = 0
+
+  let time: number = 0;
 
   const handleMouseEnter = () => {
-    time = setTimeout(() => setIsHover(true), 1100)    
+    time = setTimeout(() => setIsHover(true), 2000);
   };
 
   const handleMouseLeave = () => {
-    clearTimeout(time)
+    clearTimeout(time);
     setIsHover(false);
   };
 
   const getVideoMovie = useCallback(async () => {
     let id = "";
-    const boolean = isMovie ? true : false
+    const boolean = isMovie ? true : false;
     if (videoMovieKey !== undefined) {
       id = await getYoutubeVideoId(videoMovieKey, boolean);
     }
     setVideoId(id);
   }, [videoMovieKey]);
 
-
   useEffect(() => {
     getVideoMovie();
-  }, [getVideoMovie]);  
-
+  }, [getVideoMovie]);
 
   return (
     <CardContainer

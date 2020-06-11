@@ -49,7 +49,7 @@ const DailyEventWindow: React.FC<DailyEventWindowProps> = ({movie}): React.React
 
   const getAiringSerie = useCallback(async () => {
     setPlaying(await getSerieOnTheAir())
-  }, [getSerieOnTheAir])
+  }, [])
 
   const getVideoId = useCallback(async () => {
     const id: string = await getYoutubeVideoId(playing.id, movie);

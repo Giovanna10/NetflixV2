@@ -20,13 +20,6 @@ const SliderContainer = styled.div`
   margin-top: 45px;
 `;
 
-const TitleContainer = styled.div`
-  position: absolute;
-  right: 0;
-  left: 0;
-  z-index: 10;
-`;
-
 interface SliderProps {
   upcomingM?: boolean;
   popularM?: boolean;
@@ -44,6 +37,7 @@ const Slider: React.FC<SliderProps> = ({
 }): React.ReactElement => {
   const [films, setFilms] = useState<Film[]>([]);
   const [isOver, setIsOver] = useState<boolean>(false);
+
   const isMovie = upcomingM || popularM ? true : airingS || (popularS && false);
 
   const getFilms = useCallback(async () => {
@@ -93,19 +87,17 @@ const Slider: React.FC<SliderProps> = ({
 
   return (
     <>
-      <TitleContainer>
-        <Text
-          size={20}
-          color="#fefefe"
-          weight={600}
-          marginLeft="0.8em"
-          marginTop="0.5em"
-          marginBottom="0.5em"
-          family="Arial, Helvetica, sans-serif"
-        >
-          {sliderTilte}
-        </Text>
-      </TitleContainer>
+      <Text
+        size={20}
+        color="#fefefe"
+        weight={600}
+        marginLeft="0.8em"
+        marginTop="0.5em"
+        marginBottom="0.5em"
+        family="Arial, Helvetica, sans-serif"
+      >
+        {sliderTilte}
+      </Text>
       <SliderContainer
         onMouseOver={() => setIsOver(true)}
         onMouseLeave={() => setIsOver(false)}

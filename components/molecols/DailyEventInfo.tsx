@@ -7,14 +7,11 @@ import { motion, useAnimation } from "framer-motion";
 
 const DailyEventInfoContainer = styled.div`
   position: absolute;
-  top: 0;
+  top: 300px;
   left: 0;
-  bottom: 40px;
+  bottom: 0;
   right: 0;
   margin-left: 5%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
 `;
 
 const DescriptionsContainer = styled(motion.div)`

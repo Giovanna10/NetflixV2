@@ -7,6 +7,7 @@ const Layout: React.FC = ({ children }): React.ReactElement => {
         overflowY: "auto",
         margin: 0,
         backgroundColor: "#000000",
+        position: "relative"
       }}
     >
       <Navigation />
