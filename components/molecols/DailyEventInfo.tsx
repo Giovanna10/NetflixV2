@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "../atoms/Button";
 import { Text } from "../atoms/Text";
 import styled from "styled-components";
 import { motion, useAnimation } from "framer-motion";
-
+import { Icons } from "../atoms/Icon";
 
 const DailyEventInfoContainer = styled.div`
   position: absolute;
@@ -33,14 +33,12 @@ const ButtonsContainer = styled.div`
   margin-top: 2%;
 `;
 
-
 interface DailyEventInfoProps {
   title: string;
   overview: string;
   handlePlayVideo: () => void;
   playVideo: boolean;
 }
-
 
 const DailyEventInfo: React.FC<DailyEventInfoProps> = ({
   title,
@@ -50,6 +48,8 @@ const DailyEventInfo: React.FC<DailyEventInfoProps> = ({
 }) => {
   const titleControls = useAnimation();
   const descriptionControls = useAnimation();
+  const [playBtnText, setPlayBtnText] = useState<string>("");
+  const [playBtnIcon, setPlayBtnIcon] = useState<keyof typeof Icons>();
 
   const handleStartAnimation = () => {
     titleControls.start({
@@ -75,8 +75,20 @@ const DailyEventInfo: React.FC<DailyEventInfoProps> = ({
     });
   };
 
+  const handlePlayButton = playVideo
+    ? () => {
+        handleStartAnimation();
+        setPlayBtnText("Stop");
+        setPlayBtnIcon("stopIcon");
+      }
+    : () => {
+        handleEndAnimation();
+        setPlayBtnText("Play");
+        setPlayBtnIcon("playIcon");
+      };
+
   useEffect(() => {
-    playVideo ? handleStartAnimation() : handleEndAnimation();
+    handlePlayButton();
   }, [playVideo]);
 
   return (
@@ -106,10 +118,10 @@ const DailyEventInfo: React.FC<DailyEventInfoProps> = ({
           height="55px"
           width="115px"
           backgroundColor="rgba(1, 210, 119, .65)"
-          text="Play"
+          text={playBtnText}
           textColor="#000000"
           textSize={14}
-          icon="playIcon"
+          icon={playBtnIcon}
           iconHeight={20}
           iconWidth={20}
           justifyContent="space-around"

@@ -17,7 +17,7 @@ const SliderContainer = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
-  margin-top: 45px;
+  margin-top: 20px;
 `;
 
 interface SliderProps {
@@ -92,8 +92,6 @@ const Slider: React.FC<SliderProps> = ({
         color="#fefefe"
         weight={600}
         marginLeft="0.8em"
-        marginTop="0.5em"
-        marginBottom="0.5em"
         family="Arial, Helvetica, sans-serif"
       >
         {sliderTilte}

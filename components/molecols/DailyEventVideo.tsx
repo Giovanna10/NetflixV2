@@ -14,13 +14,14 @@ interface DailyEventVideoProps {
     videoId: string;
 }
 
-const DailyEventVideo: React.FC<DailyEventVideoProps> = ({playVideo, videoId}) => {
+const DailyEventVideo: React.FC<DailyEventVideoProps> = ({playVideo, videoId}) => {  
     return (
         <DailyEventVideoContainer>
         <ReactPlayer
           url={`https://www.youtube.com/watch?v=${videoId}`}
           loop
           playing={playVideo}
+          light={!playVideo}
           style={{ transform: "scale(1.8, 1.35)" }}
           height="100%"
           width="100%"

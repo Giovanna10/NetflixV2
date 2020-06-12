@@ -6,23 +6,23 @@ import withLocale from "../../hocs/withLocale";
 import LatestEvent from "../../components/organisms/LatestEvent";
 
 const Movies: React.FC = () => {
-  const [scrollPosition, setScrollPosition] = useState<number>(0)
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
   const updatePosition = () => {
-    setScrollPosition(window.pageYOffset)
-  }
+    setScrollPosition(window.pageYOffset);
+  };
 
   useLayoutEffect(() => {
-    updatePosition()
-    window.addEventListener('scroll', updatePosition)
-    updatePosition()
-    return () => window.removeEventListener('scroll', updatePosition)
-  }, [])
+    updatePosition();
+    window.addEventListener("scroll", updatePosition);
+    updatePosition();
+    return () => window.removeEventListener("scroll", updatePosition);
+  }, []);
   return (
     <Layout>
-      <DailyEventWindow movie/>
+      <DailyEventWindow movie scrollPosition={scrollPosition} />
       <Slider upcomingM sliderTilte="Upcoming Movies" />
       <Slider popularM sliderTilte="Popular Movies" />
-      <LatestEvent movie scrollPosition={scrollPosition}/>
+      <LatestEvent movie scrollPosition={scrollPosition} />
     </Layout>
   );
 };

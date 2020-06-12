@@ -10,6 +10,7 @@ import { getSerieOnTheAir } from "../../api/tv/onTheAir";
 const { IMAGE_BASE_URL } = process.env;
 
 interface DailyEventWindowProps {
+  scrollPosition: number;
   movie: boolean;
 }
 
@@ -29,7 +30,10 @@ const DailyEventPosterContainer = styled.div<DailyContainerProps>`
   margin-top: 50px;
 `;
 
-const DailyEventWindow: React.FC<DailyEventWindowProps> = ({movie}): React.ReactElement => {
+const DailyEventWindow: React.FC<DailyEventWindowProps> = ({
+  movie,
+  scrollPosition,
+}): React.ReactElement => {
   const [playing, setPlaying] = useState<Film>({
     id: 0,
     release_date: "",
@@ -48,22 +52,26 @@ const DailyEventWindow: React.FC<DailyEventWindowProps> = ({movie}): React.React
   }, []);
 
   const getAiringSerie = useCallback(async () => {
-    setPlaying(await getSerieOnTheAir())
-  }, [])
+    setPlaying(await getSerieOnTheAir());
+  }, []);
 
   const getVideoId = useCallback(async () => {
     const id: string = await getYoutubeVideoId(playing.id, movie);
     setVideoId(id);
   }, [playing.id]);
 
-  useEffect(() => {
-    movie ? getPlayingMovie() : getAiringSerie()
-    getVideoId();
-  }, [movie, getPlayingMovie, getAiringSerie, getVideoId]);
-
   const handlePlayVideo = () => {
     setPlayVideo(!playVideo);
   };
+
+  useEffect(() => {
+    movie ? getPlayingMovie() : getAiringSerie();
+    getVideoId();
+  }, [movie, getPlayingMovie, getAiringSerie, getVideoId]);
+
+  useEffect(() => {
+    scrollPosition < 300 ? setPlayVideo(true) : setPlayVideo(false);
+  }, [scrollPosition]);
 
   return (
     <>

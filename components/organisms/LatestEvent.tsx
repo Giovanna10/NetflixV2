@@ -77,7 +77,7 @@ const LatestEvent: React.FC<LatestEventProps> = ({ movie, scrollPosition }) => {
   }, [movie, getTopMovie, getTopSerie, getVideoMovie]);
 
   useEffect(() => {
-    scrollPosition > 563
+    scrollPosition > 850
       ? setPlayingVideo(true)
       : setPlayingVideo(false);
   }, [scrollPosition]);  

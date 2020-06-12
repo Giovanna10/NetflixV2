@@ -20,7 +20,7 @@ const Tv_Series: React.FC = () => {
 
   return (
     <Layout>
-      <DailyEventWindow movie={false} />
+      <DailyEventWindow movie={false} scrollPosition={scrollPosition} />
       <Slider popularS sliderTilte="Popular Series" />
       <Slider airingS sliderTilte="Airing Today" />
       <LatestEvent movie={false} scrollPosition={scrollPosition} />
